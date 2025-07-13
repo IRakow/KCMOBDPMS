@@ -1,0 +1,48 @@
+{
+  "name": "property-management-system",
+  "version": "1.0.0",
+  "description": "Enterprise property management system with modern architecture",
+  "main": "src/index.jsx",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "build": "python3 build_enhanced.py",
+    "build:prod": "python3 build_enhanced.py --src src --dist dist",
+    "deploy:staging": "python3 deploy.py staging",
+    "deploy:production": "python3 deploy.py production",
+    "preview": "cd dist && python3 -m http.server 8080",
+    "clean": "rm -rf dist",
+    "lint": "echo 'Linting not configured yet'",
+    "test": "echo 'Tests not configured yet'",
+    "analyze": "python3 -c \"import json; manifest = json.load(open('dist/build-manifest.json')); print(f'Bundle size: {manifest[\\\"stats\\\"][\\\"minified_size\\\"]} bytes')\""
+  },
+  "keywords": [
+    "property-management",
+    "real-estate",
+    "react",
+    "enterprise",
+    "dashboard"
+  ],
+  "author": "Your Company",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "requests": "^2.28.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourcompany/property-management-system"
+  },
+  "homepage": "https://yourcompany.github.io/property-management-system",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

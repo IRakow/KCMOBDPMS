@@ -1,0 +1,171 @@
+INFO:     Will watch for changes in these directories: ['/Users/ianrakow/Documents/front new/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [3807] using WatchFiles
+INFO:     Started server process [3810]
+INFO:     Waiting for application startup.
+INFO:app.main:Starting up...
+INFO:app.main:Database initialized
+INFO:     Application startup complete.
+INFO:     127.0.0.1:56598 - "GET /api/v1/units/ HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/mapper.py", line 2505, in get_property
+    return self._props[key]
+KeyError: 'property'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/Users/ianrakow/Documents/front new/backend/app/api/units.py", line 112, in list_units
+    query = db.query(Unit).join(
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/session.py", line 2912, in query
+    return self._query_cls(entities, self, **kwargs)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/query.py", line 276, in __init__
+    self._set_entities(entities)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/query.py", line 288, in _set_entities
+    self._raw_columns = [
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/query.py", line 289, in <listcomp>
+    coercions.expect(
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/sql/coercions.py", line 406, in expect
+    insp._post_inspect
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/util/langhelpers.py", line 1260, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/mapper.py", line 2707, in _post_inspect
+    self._check_configure()
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/mapper.py", line 2386, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/mapper.py", line 4199, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/mapper.py", line 4240, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/mapper.py", line 2403, in _post_configure_properties
+    prop.init()
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/interfaces.py", line 579, in init
+    self.do_init()
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/relationships.py", line 1640, in do_init
+    self._generate_backref()
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/relationships.py", line 2129, in _generate_backref
+    self._add_reverse_property(self.back_populates)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/relationships.py", line 1571, in _add_reverse_property
+    other = self.mapper.get_property(key, _configure_mappers=False)
+  File "/Users/ianrakow/Library/Python/3.9/lib/python/site-packages/sqlalchemy/orm/mapper.py", line 2507, in get_property
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[Unit(units)]' has no property 'property'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+INFO:watchfiles.main:3 changes detected
+WARNING:  WatchFiles detected changes in 'app/models/property.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:app.main:Shutting down...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3810]
+INFO:     Started server process [3826]
+INFO:     Waiting for application startup.
+INFO:app.main:Starting up...
+INFO:app.main:Database initialized
+INFO:     Application startup complete.
+INFO:     127.0.0.1:56637 - "GET /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56653 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56677 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56677 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56677 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56677 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56677 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56679 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56682 - "GET /api/v1/properties HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:56844 - "OPTIONS /api/v1/properties HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56845 - "OPTIONS /api/v1/units HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56844 - "GET /api/v1/properties HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:56845 - "GET /api/v1/units HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:56845 - "OPTIONS /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56844 - "OPTIONS /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56844 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56845 - "GET /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56849 - "GET /api/v1/properties HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:56850 - "GET /api/v1/units HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:56849 - "GET /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56850 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57036 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57051 - "OPTIONS /api/v1/properties HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57052 - "OPTIONS /api/v1/units HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57051 - "GET /api/v1/properties HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57052 - "GET /api/v1/units HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57052 - "OPTIONS /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57051 - "OPTIONS /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57052 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57051 - "GET /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57070 - "GET /api/v1/properties HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57071 - "GET /api/v1/units HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57071 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57070 - "GET /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57503 - "OPTIONS /api/v1/properties HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57503 - "GET /api/v1/properties HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57503 - "OPTIONS /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57503 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57506 - "GET /api/v1/properties HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57507 - "OPTIONS /api/v1/units HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57507 - "GET /api/v1/units HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57506 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57507 - "OPTIONS /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57507 - "GET /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57510 - "GET /api/v1/properties HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57511 - "GET /api/v1/units HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57510 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57511 - "GET /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57511 - "GET /api/v1/properties HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57510 - "GET /api/v1/units HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57511 - "GET /api/v1/units/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57510 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57534 - "GET /api/v1/properties HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57535 - "GET /api/v1/units HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:57534 - "GET /api/v1/properties/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57535 - "GET /api/v1/units/ HTTP/1.1" 200 OK
+INFO:watchfiles.main:3 changes detected
+WARNING:  WatchFiles detected changes in 'app/models/property.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:app.main:Shutting down...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3826]
+INFO:     Started server process [5629]
+INFO:     Waiting for application startup.
+INFO:app.main:Starting up...
+INFO:app.main:Database initialized
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:app.main:Shutting down...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5629]
+INFO:     Stopping reloader process [3807]

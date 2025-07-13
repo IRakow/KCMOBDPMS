@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - Property Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .status {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .error {
+            color: red;
+            background: #fee;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success {
+            color: green;
+            background: #efe;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Property Management System - Debug Page</h1>
+    
+    <div class="status">
+        <h2>JavaScript Loading Status</h2>
+        <div id="load-status"></div>
+    </div>
+    
+    <div class="status">
+        <h2>Console Errors</h2>
+        <div id="console-errors"></div>
+    </div>
+    
+    <div class="status">
+        <h2>Available Components</h2>
+        <div id="components"></div>
+    </div>
+
+    <div class="status">
+        <h2>Test Render</h2>
+        <div id="test-root"></div>
+    </div>
+    
+    <script>
+        const loadStatus = document.getElementById('load-status');
+        const consoleErrors = document.getElementById('console-errors');
+        const componentsDiv = document.getElementById('components');
+        const errors = [];
+        
+        // Capture console errors
+        window.addEventListener('error', (e) => {
+            errors.push(`Error: ${e.message} at ${e.filename}:${e.lineno}:${e.colno}`);
+            updateErrors();
+        });
+        
+        function updateErrors() {
+            if (errors.length === 0) {
+                consoleErrors.innerHTML = '<div class="success">No console errors detected</div>';
+            } else {
+                consoleErrors.innerHTML = errors.map(err => `<div class="error">${err}</div>`).join('');
+            }
+        }
+        
+        // Initial update
+        updateErrors();
+    </script>
+    
+    <!-- Load React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script>
+        loadStatus.innerHTML += '<div class="success">React libraries loaded</div>';
+        
+        // Check if React is available
+        if (typeof React !== 'undefined') {
+            loadStatus.innerHTML += '<div class="success">React is available: ' + React.version + '</div>';
+        } else {
+            loadStatus.innerHTML += '<div class="error">React is NOT available</div>';
+        }
+        
+        if (typeof ReactDOM !== 'undefined') {
+            loadStatus.innerHTML += '<div class="success">ReactDOM is available</div>';
+        } else {
+            loadStatus.innerHTML += '<div class="error">ReactDOM is NOT available</div>';
+        }
+        
+        if (typeof Babel !== 'undefined') {
+            loadStatus.innerHTML += '<div class="success">Babel is available</div>';
+        } else {
+            loadStatus.innerHTML += '<div class="error">Babel is NOT available</div>';
+        }
+    </script>
+    
+    <!-- Test simple component -->
+    <script type="text/babel">
+        const TestComponent = () => {
+            return (
+                <div style={{ padding: '20px', background: '#e0f0ff', borderRadius: '8px' }}>
+                    <h3>React is working!</h3>
+                    <p>If you can see this, React and Babel are functioning correctly.</p>
+                    <p>React version: {React.version}</p>
+                </div>
+            );
+        };
+        
+        try {
+            const root = ReactDOM.createRoot(document.getElementById('test-root'));
+            root.render(<TestComponent />);
+            loadStatus.innerHTML += '<div class="success">Test component rendered successfully</div>';
+        } catch (e) {
+            loadStatus.innerHTML += '<div class="error">Failed to render test component: ' + e.message + '</div>';
+            console.error('Render error:', e);
+        }
+    </script>
+    
+    <!-- Load app files -->
+    <script type="text/babel" src="/src/utils/api.js"></script>
+    <script type="text/babel" src="/src/utils/auth.js"></script>
+    
+    <script>
+        // Check if app components are loaded
+        setTimeout(() => {
+            const components = [];
+            
+            if (typeof window.apiClient !== 'undefined') {
+                components.push('apiClient');
+            }
+            if (typeof window.authManager !== 'undefined') {
+                components.push('authManager');
+            }
+            
+            if (components.length > 0) {
+                componentsDiv.innerHTML = '<div class="success">Loaded components: ' + components.join(', ') + '</div>';
+            } else {
+                componentsDiv.innerHTML = '<div class="error">No app components loaded</div>';
+            }
+            
+            // Final error check
+            updateErrors();
+        }, 1000);
+    </script>
+</body>
+</html>

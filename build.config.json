@@ -1,0 +1,22 @@
+{
+  "minify": true,
+  "gzip": true,
+  "source_maps": false,
+  "bundle_splitting": true,
+  "css_optimization": true,
+  "image_optimization": false,
+  "hash_filenames": true,
+  "remove_dev_code": true,
+  "compression_level": 9,
+  "target_environments": ["modern"],
+  "cdn_urls": {
+    "react": "https://unpkg.com/react@18/umd/react.production.min.js",
+    "react_dom": "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+  },
+  "optimization": {
+    "remove_console_logs": true,
+    "remove_dev_blocks": true,
+    "minify_css": true,
+    "optimize_images": false
+  }
+}

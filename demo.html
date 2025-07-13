@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Management Demo</title>
+    <link rel="stylesheet" href="/src/styles/base.css">
+    <link rel="stylesheet" href="/src/styles/components.css">
+    <link rel="stylesheet" href="/src/styles/units.css">
+    <link rel="stylesheet" href="/src/styles/units-world-class.css">
+    <link rel="stylesheet" href="/src/styles/real-ai.css">
+    <link rel="stylesheet" href="/src/styles/automation-hub.css">
+    <link rel="stylesheet" href="/src/styles/properties-complete.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .demo-nav {
+            background: var(--color-surface);
+            padding: 16px;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: 24px;
+        }
+        .demo-nav h1 {
+            margin: 0 0 16px 0;
+            color: var(--color-text);
+        }
+        .demo-nav .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        .demo-nav button {
+            padding: 8px 16px;
+            border: 1px solid var(--color-border);
+            background: var(--color-surface-alt);
+            color: var(--color-text);
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .demo-nav button.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+        .demo-nav button:hover {
+            background: var(--color-primary-light);
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="demo-nav">
+            <h1>Property Management System - Demo</h1>
+            <div class="nav-buttons">
+                <button id="propertiesBtn" class="active">Properties</button>
+                <button id="unitsBtn">Units</button>
+                <button id="unitsWorldClassBtn">Units World-Class</button>
+                <button id="unitsAIBtn">🤖 AI-Powered Units</button>
+                <button id="realAIBtn">⚡ REAL AI Integration</button>
+                <button id="automationBtn">🚀 Automation Hub</button>
+            </div>
+        </div>
+        <div id="content"></div>
+    </div>
+    
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/babel" src="/src/services/apiService.js"></script>
+    <script type="text/babel" src="/src/patterns/CrudModulePattern.js"></script>
+    <script type="text/babel" src="/src/components/Button.jsx"></script>
+    <script type="text/babel" src="/src/components/Input.jsx"></script>
+    <script type="text/babel" src="/src/components/Card.jsx"></script>
+    <script type="text/babel" src="/src/components/SearchBar.jsx"></script>
+    <script type="text/babel" src="/src/components/PropertiesWorking.jsx"></script>
+    <script type="text/babel" src="/src/components/UnitsWorking.jsx"></script>
+    <script type="text/babel" src="/src/components/UnitsWorldClass.jsx"></script>
+    <script type="text/babel" src="/src/components/UnitsAIPowered.jsx"></script>
+    <script type="text/babel" src="/src/components/UnitsWithRealAI.jsx"></script>
+    <script type="text/babel" src="/src/components/AutomationHub.jsx"></script>
+    
+    <script type="text/babel">
+        const { useState } = React;
+        
+        const DemoApp = () => {
+            const [currentView, setCurrentView] = useState('properties');
+            
+            const clearActiveButtons = () => {
+                document.getElementById('propertiesBtn').classList.remove('active');
+                document.getElementById('unitsBtn').classList.remove('active');
+                document.getElementById('unitsWorldClassBtn').classList.remove('active');
+                document.getElementById('unitsAIBtn').classList.remove('active');
+                document.getElementById('realAIBtn').classList.remove('active');
+                document.getElementById('automationBtn').classList.remove('active');
+            };
+            
+            React.useEffect(() => {
+                document.getElementById('propertiesBtn').onclick = () => {
+                    setCurrentView('properties');
+                    clearActiveButtons();
+                    document.getElementById('propertiesBtn').classList.add('active');
+                };
+                
+                document.getElementById('unitsBtn').onclick = () => {
+                    setCurrentView('units');
+                    clearActiveButtons();
+                    document.getElementById('unitsBtn').classList.add('active');
+                };
+                
+                document.getElementById('unitsWorldClassBtn').onclick = () => {
+                    setCurrentView('unitsWorldClass');
+                    clearActiveButtons();
+                    document.getElementById('unitsWorldClassBtn').classList.add('active');
+                };
+                
+                document.getElementById('unitsAIBtn').onclick = () => {
+                    setCurrentView('unitsAI');
+                    clearActiveButtons();
+                    document.getElementById('unitsAIBtn').classList.add('active');
+                };
+                
+                document.getElementById('realAIBtn').onclick = () => {
+                    setCurrentView('realAI');
+                    clearActiveButtons();
+                    document.getElementById('realAIBtn').classList.add('active');
+                };
+                
+                document.getElementById('automationBtn').onclick = () => {
+                    setCurrentView('automation');
+                    clearActiveButtons();
+                    document.getElementById('automationBtn').classList.add('active');
+                };
+            }, []);
+            
+            return (
+                <div style={{ padding: (currentView === 'unitsWorldClass' || currentView === 'unitsAI' || currentView === 'realAI' || currentView === 'automation') ? '0' : '0 24px' }}>
+                    {currentView === 'properties' && <PropertiesWorking />}
+                    {currentView === 'units' && <UnitsWorking />}
+                    {currentView === 'unitsWorldClass' && <UnitsWorldClass />}
+                    {currentView === 'unitsAI' && <UnitsAIPowered />}
+                    {currentView === 'realAI' && <UnitsWithRealAI />}
+                    {currentView === 'automation' && <AutomationHub />}
+                </div>
+            );
+        };
+        
+        ReactDOM.render(<DemoApp />, document.getElementById('content'));
+    </script>
+</body>
+</html>

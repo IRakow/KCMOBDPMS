@@ -1,0 +1,91 @@
+/* Fix the dark banner overlap issue */
+.properties-pro,
+.properties-complete,
+.properties-page {
+    min-height: 100vh;
+    background: #f8f9fa;
+    padding-top: 0; /* Remove any top padding */
+}
+
+/* If there's a fixed header causing the overlap */
+.admin-content {
+    margin-top: 0; /* Reset margin */
+    padding-top: 0; /* Reset padding */
+}
+
+/* The dark banner should be part of the page, not overlapping */
+.page-banner {
+    background: #2d3748; /* Dark background */
+    color: white;
+    padding: 24px;
+    margin-bottom: 0; /* No margin to prevent gaps */
+}
+
+/* Alert/Insights bar should have proper spacing */
+.alert-bar,
+.insights-bar {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: white; /* Changed from transparent */
+    border-bottom: 1px solid #e9ecef;
+    overflow-x: auto;
+    margin-top: 0; /* Ensure it's right below the banner */
+}
+
+/* Main page header should have proper background */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    background: white; /* Ensure white background */
+    border-bottom: 1px solid #e9ecef;
+    margin-top: 0; /* No margin to prevent gaps */
+}
+
+/* If the banner is absolutely positioned, fix it */
+.properties-banner {
+    position: relative; /* Change from absolute/fixed */
+    background: #2d3748;
+    color: white;
+    padding: 40px 24px;
+    margin: 0;
+}
+
+/* Ensure proper stacking order */
+.properties-content-wrapper {
+    position: relative;
+    z-index: 1;
+    background: #f8f9fa;
+}
+
+/* Fix for the Properties title if it's under the banner */
+.properties-banner h1 {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    z-index: 10;
+    position: relative;
+}
+
+/* Alert cards styling - ensure they're visible */
+.alert-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: white; /* Solid background */
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    min-width: 300px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the content below the banner is properly spaced */
+.page-content {
+    margin-top: 0;
+    padding-top: 0;
+    background: #f8f9fa;
+}

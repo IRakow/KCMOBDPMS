@@ -1,0 +1,57 @@
+# Core dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0.post1
+pydantic==2.5.0
+pydantic-settings==2.1.0
+python-multipart==0.0.6
+
+# Database
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+alembic==1.13.0
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.0
+
+# Email
+emails==0.6
+fastapi-mail==1.4.1
+
+# File handling
+python-magic==0.4.27
+pillow==10.1.0
+
+# Background tasks
+celery==5.3.4
+redis==5.0.1
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
+
+# Development
+black==23.11.0
+flake8==6.1.0
+isort==5.12.0
+mypy==1.7.1
+
+# Monitoring & Logging
+sentry-sdk==1.38.0
+
+# API Documentation
+fastapi-pagination==0.12.13
+
+# Date/Time handling
+python-dateutil==2.8.2
+
+# AWS SDK (optional - for S3)
+boto3==1.34.0
+
+# Payment processing (optional)
+stripe==7.6.0
+
+# SMS (optional)
+twilio==8.10.2

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        #root {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .error {
+            color: red;
+            padding: 10px;
+            background: #fee;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Minimal React Test</h1>
+    <div id="root">Loading...</div>
+    <div id="errors"></div>
+    
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/babel">
+        const App = () => {
+            return (
+                <div>
+                    <h2>React is working!</h2>
+                    <p>This is a minimal React app.</p>
+                    <p>React version: {React.version}</p>
+                </div>
+            );
+        };
+        
+        try {
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<App />);
+        } catch (e) {
+            document.getElementById('errors').innerHTML = '<div class="error">Error: ' + e.message + '</div>';
+            console.error('Render error:', e);
+        }
+    </script>
+    
+    <script>
+        window.addEventListener('error', (e) => {
+            document.getElementById('errors').innerHTML += '<div class="error">JS Error: ' + e.message + '</div>';
+        });
+    </script>
+</body>
+</html>

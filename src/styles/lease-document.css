@@ -1,0 +1,347 @@
+/* Lease Document Styles */
+.lease-document-container {
+    margin-top: 20px;
+}
+
+.lease-actions-bar {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.lease-preview {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Lease Document Formatting */
+.lease-document {
+    font-family: 'Times New Roman', serif;
+    line-height: 1.6;
+    color: #000;
+}
+
+.lease-document h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.lease-document h2 {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+.lease-document p {
+    margin: 10px 0;
+}
+
+.property-address {
+    background: #f5f5f5;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid #6366f1;
+}
+
+.lease-rules ol {
+    margin-left: 20px;
+}
+
+.lease-rules li {
+    margin: 8px 0;
+}
+
+.signature-block {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.signature-line {
+    width: 45%;
+    text-align: center;
+}
+
+.signature-line p:first-child {
+    border-bottom: 1px solid #333;
+    margin-bottom: 5px;
+}
+
+/* E-Signature Section */
+.e-signature-section {
+    background: #f9fafb;
+    border: 2px dashed #6366f1;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.signature-input {
+    width: 300px;
+    padding: 12px;
+    font-size: 18px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Brush Script MT', cursive;
+    margin: 20px 0;
+}
+
+.signature-confirmation {
+    background: #d1fae5;
+    border: 1px solid #10b981;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.signature-confirmation i {
+    font-size: 48px;
+    color: #10b981;
+    margin-bottom: 10px;
+}
+
+/* Lease Card Enhancements */
+.lease-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+.lease-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.lease-card.expiring {
+    border-left: 4px solid #f59e0b;
+}
+
+.lease-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.lease-info h3 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.lease-property {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.lease-status {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.lease-status.active {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.lease-status.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.lease-status.expired {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.lease-details {
+    margin-bottom: 16px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.detail-row .label {
+    color: #6b7280;
+}
+
+.detail-row .rent {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.expiry-warning {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.lease-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: #f3f4f6;
+    border-radius: 8px;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon:hover {
+    background: #6366f1;
+    color: white;
+}
+
+.btn-icon.danger:hover {
+    background: #ef4444;
+}
+
+/* Modal Enhancements for Large Content */
+.modal.large {
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Print Styles */
+@media print {
+    .lease-actions-bar,
+    .e-signature-section,
+    .no-print {
+        display: none !important;
+    }
+    
+    .lease-preview {
+        border: none;
+        padding: 0;
+    }
+    
+    .lease-document {
+        font-size: 12pt;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .lease-actions-bar {
+        flex-wrap: wrap;
+    }
+    
+    .signature-block {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .signature-line {
+        width: 100%;
+    }
+    
+    .lease-preview {
+        padding: 20px;
+    }
+}
+
+/* Leases Page Styles */
+.leases-page {
+    padding: 24px;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eff6ff;
+    color: #3b82f6;
+    font-size: 24px;
+}
+
+.stat-icon.warning {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.stat-icon.success {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.leases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+}
