@@ -136,7 +136,7 @@ class ApiClient {
             throw new Error('Not authenticated');
         }
         
-        if (endpoint === '/dashboard/metrics') {
+        if (endpoint === '/v1/dashboard/metrics') {
             return {
                 occupancy: { rate: 92, occupied: 184, total: 200, change: 3.5 },
                 revenue: { current: 2500000, target: 3000000, change: 12.5 },
@@ -261,16 +261,16 @@ class ApiClient {
     // Dashboard API methods
     async getDashboardMetrics(propertyId = null) {
         const params = propertyId ? `?property_id=${propertyId}` : '';
-        return this.request(`/dashboard/metrics${params}`);
+        return this.request(`/v1/dashboard/metrics${params}`);
     }
     
     async getCalendarEvents(propertyId = null) {
         const params = propertyId ? `?property_id=${propertyId}` : '';
-        return this.request(`/dashboard/calendar${params}`);
+        return this.request(`/v1/dashboard/calendar${params}`);
     }
     
     async getNotifications(limit = 10) {
-        return this.request(`/dashboard/notifications?limit=${limit}`);
+        return this.request(`/v1/dashboard/notifications?limit=${limit}`);
     }
     
     // Property API methods
