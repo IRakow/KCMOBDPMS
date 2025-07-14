@@ -1,126 +1,453 @@
-::1 - - [12/Jul/2025 03:32:19] "GET /test.html HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 03:33:06] "GET / HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/units.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/tenants.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/base.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/components.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/dashboard.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/properties-fixed.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/properties-pro.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/properties-v2.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/properties-banner-fix.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/properties-complete.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/utils/stateManager.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/utils/api.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/utils/cacheEnhanced.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/utils/auth.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/stores/authStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/utils/performanceEnhanced.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/Units.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/stores/dashboardStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/patterns/ComponentFactory.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/hooks/useStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/services/propertyService.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/PropertyCardPattern.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/AddPropertyModal.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Icons.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Card.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Button.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Input.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/SearchBar.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Sidebar.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/SidebarV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/MiniCharts.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/OccupancyWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/MaintenanceWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/RevenueWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/LeasesWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/CalendarWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/FollowUpsWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/QuickNotesWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/DashboardWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/DraggableWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/WidgetSelector.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/SimpleDashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/TestDashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/Login.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/AdminPortal.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/AdminPortalV3.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/PropertiesFixed.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Dashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/AdminPortalV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/Properties.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/PropertiesV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/App.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/index.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/PropertiesPro.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:36:36] "GET / HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:36:36] "GET /src/styles/tenants.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:32] "GET / HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/components.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/base.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/voice-assistant.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/dashboard.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/properties-complete.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/units.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/properties-v2.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/properties-fixed.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/tenants.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/properties-banner-fix.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/properties-pro.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/utils/api.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/utils/auth.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/patterns/ComponentFactory.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/utils/performanceEnhanced.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/utils/stateManager.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/stores/dashboardStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/hooks/useStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/VoiceAssistant.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Tenants.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Leases.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/stores/authStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Maintenance.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/utils/cacheEnhanced.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/services/propertyService.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/PropertyCardPattern.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/AddPropertyModal.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Button.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Input.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Card.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/SearchBar.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Icons.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Sidebar.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/SidebarV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/MiniCharts.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/OccupancyWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/RevenueWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/MaintenanceWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/LeasesWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/FollowUpsWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/CalendarWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/QuickNotesWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/DashboardWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/DraggableWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/WidgetSelector.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/TestDashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/SimpleDashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Dashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Login.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/AdminPortal.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/AdminPortalV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Properties.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/AdminPortalV3.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/PropertiesV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/PropertiesPro.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/PropertiesFixed.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/App.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Units.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/index.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:57] "GET / HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:57] "GET /src/styles/tenants.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:57] "GET /src/styles/voice-assistant.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:58] "GET /src/components/VoiceAssistant.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:58] "GET /src/pages/Leases.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:58] "GET /src/pages/Maintenance.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:58] "GET /src/pages/AdminPortalV3.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 23:07:53] "GET /src/styles/units-world-class.css HTTP/1.1" 200 -
+INFO:     Will watch for changes in these directories: ['/Users/ianrakow/Desktop/BDPMS MO/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     Started reloader process [39825] using WatchFiles
+🚀 Starting simple Property Management API...
+📊 Dashboard: http://localhost:8000/api/v1/dashboard/metrics
+📖 Docs: http://localhost:8000/docs
+INFO:     Started server process [39828]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57506 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57533 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57792 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57792 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57805 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57806 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57806 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57805 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57818 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57819 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57821 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57823 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57823 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57821 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57827 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57828 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57835 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57836 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57839 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57840 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57869 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57870 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57884 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57885 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57888 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57889 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57894 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57895 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57904 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57905 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57908 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57910 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57920 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57921 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57942 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57943 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57946 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57947 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57953 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57954 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57965 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57967 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57987 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57988 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57991 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57993 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58019 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58020 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58059 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58060 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58063 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58064 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58076 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58077 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58110 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58111 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58110 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58111 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58159 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58160 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58175 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58176 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58181 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58182 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58231 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58232 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58281 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58282 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58314 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58315 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58340 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58341 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58427 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58428 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58447 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58449 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58529 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58529 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58536 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58542 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58544 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58542 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58544 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58551 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58552 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58586 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58587 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58593 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58594 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58607 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58618 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58619 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58663 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58664 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58709 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58710 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58734 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58735 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58737 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58739 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58772 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58773 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58784 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58785 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58788 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58789 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58808 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58810 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58831 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58832 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58844 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58845 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58871 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58873 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58890 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58891 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58905 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58906 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58930 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58931 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58954 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58955 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58996 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58996 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59007 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59016 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59017 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59016 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59017 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59026 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59027 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59031 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59032 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59057 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59059 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59091 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59092 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59142 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59143 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59165 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59167 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59188 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59189 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59193 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59194 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59230 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59237 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59238 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59241 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59243 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59246 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59247 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59273 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59274 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59301 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59302 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59306 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59307 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59322 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59324 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59343 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59345 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59349 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59350 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59354 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59355 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59361 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59362 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59367 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59368 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59367 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59368 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59372 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59373 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59377 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59378 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59404 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59405 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59488 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59489 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59569 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59570 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59589 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59590 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59613 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59614 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59648 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59649 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59651 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59653 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59689 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59689 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59727 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59728 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59733 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59734 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59737 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59738 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59763 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59764 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59803 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59804 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59836 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59838 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59854 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59855 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59859 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59860 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59859 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59860 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59876 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59877 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59908 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59909 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59925 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59926 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59943 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59944 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59949 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59950 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59954 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59956 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59990 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59991 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59997 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:59998 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60013 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60014 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60040 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60041 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60067 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60068 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60068 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60067 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60085 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60086 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60089 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60091 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60128 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60129 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60133 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60134 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60163 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60164 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60200 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60201 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60206 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60208 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60212 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60213 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60223 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60224 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60228 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60229 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60235 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60236 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60244 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60245 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60250 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60251 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60251 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60250 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60259 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60260 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60264 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60265 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60285 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60286 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60313 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60315 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60334 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60335 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60339 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60341 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60361 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60362 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60367 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60368 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60428 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60429 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60467 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60468 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60512 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60513 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60513 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60512 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60545 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60546 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60549 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60549 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60551 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60551 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60620 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60621 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60626 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60627 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60631 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60632 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60653 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60654 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60676 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60677 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60720 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60721 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60738 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60740 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60764 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60765 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60795 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60796 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60825 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60826 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60852 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60853 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60884 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60885 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60912 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60914 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60945 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60946 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60975 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60976 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61008 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61009 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61035 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61036 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61035 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61036 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61051 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61058 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61059 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61064 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61066 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61070 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61071 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61074 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61075 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61075 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61074 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61078 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61079 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61085 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61087 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61102 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61104 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61123 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61125 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61157 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61158 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61183 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61184 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61251 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61252 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61260 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61261 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61266 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61267 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61271 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61272 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61277 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61278 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61283 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61284 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61287 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61289 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61292 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61293 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61296 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61297 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61301 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61302 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61309 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61310 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61314 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61315 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61322 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61323 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61328 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61330 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61330 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61328 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61345 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61346 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61351 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61352 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61356 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61357 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61368 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61369 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61395 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61396 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61417 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61419 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61489 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61490 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61530 - "POST /api/v1/auth/token HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61530 - "OPTIONS /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61530 - "GET /api/v1/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61544 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61545 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61545 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61544 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61571 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61572 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61579 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61580 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61601 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61602 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61640 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61641 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61647 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61649 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61675 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61676 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61683 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61684 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61687 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61688 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61723 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61724 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61741 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61742 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61762 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61764 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61768 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61769 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61781 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61782 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61791 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61792 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61814 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61815 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61845 - "OPTIONS /api/dashboard/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61846 - "OPTIONS /api/dashboard/calendar HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61845 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61846 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61855 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61856 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61863 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61864 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61888 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61890 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61928 - "GET /api/dashboard/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61929 - "GET /api/dashboard/calendar HTTP/1.1" 404 Not Found

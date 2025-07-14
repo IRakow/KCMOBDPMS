@@ -5,8 +5,8 @@
   "main": "src/index.jsx",
   "scripts": {
     "dev": "python3 -m http.server 3000",
-    "build": "python3 build_enhanced.py",
-    "build:prod": "python3 build_enhanced.py --src src --dist dist",
+    "build": "python3 build_enhanced.py --src src --dist dist",
+    "start": "python3 -m http.server 8080",
     "deploy:staging": "python3 deploy.py staging",
     "deploy:production": "python3 deploy.py production",
     "preview": "cd dist && python3 -m http.server 8080",
@@ -29,7 +29,6 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "requests": "^2.28.0"
   },
   "engines": {
     "node": ">=14.0.0",

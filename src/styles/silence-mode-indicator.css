@@ -1,0 +1,100 @@
+/* Silence Mode Indicator - Visual feedback for silence mode */
+
+.silence-mode-indicator {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 48px;
+    height: 48px;
+    background: rgba(239, 68, 68, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    z-index: 999;
+    transition: all 0.3s;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.silence-mode-indicator:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.silence-mode-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 12px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 13px;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: tooltipFadeIn 0.2s ease-out;
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.silence-mode-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Adjust position when sidebar is collapsed */
+.admin-v2 .sidebar-v2.collapsed ~ .silence-mode-indicator {
+    left: 80px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .silence-mode-indicator {
+        bottom: 16px;
+        left: 16px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .silence-mode-tooltip {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+/* Dark mode support */
+[data-theme="dark"] .silence-mode-indicator {
+    background: rgba(239, 68, 68, 0.8);
+}

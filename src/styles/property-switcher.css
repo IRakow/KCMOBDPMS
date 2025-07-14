@@ -1,0 +1,321 @@
+/* Property Switcher - Global Property Context Selector */
+
+.property-switcher {
+    position: relative;
+}
+
+/* Trigger Button */
+.property-switcher-trigger {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 200px;
+}
+
+.property-switcher-trigger:hover {
+    border-color: var(--color-brand);
+    background: var(--color-surface-hover);
+}
+
+.trigger-info {
+    flex: 1;
+    text-align: left;
+}
+
+.trigger-label {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.trigger-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.trigger-value i {
+    color: var(--color-brand);
+}
+
+.property-owner {
+    color: var(--color-text-secondary);
+    font-weight: 400;
+}
+
+.trigger-chevron {
+    color: var(--color-text-secondary);
+    transition: transform 0.2s;
+}
+
+/* Dropdown */
+.property-switcher-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 360px;
+    max-width: 400px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    overflow: hidden;
+    animation: dropdownFadeIn 0.2s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dropdown Search */
+.dropdown-search {
+    padding: 16px;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+}
+
+.dropdown-search i {
+    position: absolute;
+    left: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-secondary);
+    font-size: 14px;
+}
+
+.dropdown-search input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 14px;
+    background: var(--color-background);
+    color: var(--color-text-primary);
+    transition: all 0.2s;
+}
+
+.dropdown-search input:focus {
+    outline: none;
+    border-color: var(--color-brand);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+/* Dropdown List */
+.dropdown-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dropdown-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-list::-webkit-scrollbar-track {
+    background: var(--color-background);
+}
+
+.dropdown-list::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+.dropdown-list::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-tertiary);
+}
+
+/* Property Group */
+.property-group {
+    padding: 8px 0;
+}
+
+.property-group:not(:last-child) {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.group-header {
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Property Option */
+.property-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.property-option:hover {
+    background: var(--color-surface-hover);
+}
+
+.property-option.active {
+    background: rgba(30, 64, 175, 0.08);
+}
+
+.option-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-background);
+    color: var(--color-brand);
+    flex-shrink: 0;
+}
+
+.option-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.option-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.option-address {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.option-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.unit-count {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    background: var(--color-background);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.option-meta .fa-check {
+    color: var(--color-brand);
+}
+
+/* Dropdown States */
+.dropdown-loading,
+.dropdown-empty {
+    padding: 40px;
+    text-align: center;
+    color: var(--color-text-secondary);
+}
+
+/* Dropdown Footer */
+.dropdown-footer {
+    padding: 12px 16px;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-background);
+}
+
+.footer-action {
+    width: 100%;
+    padding: 10px 16px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.footer-action:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--color-brand);
+}
+
+/* Integration with Admin Portal */
+.topbar-v2 .property-switcher {
+    margin-right: auto;
+    margin-left: 24px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .property-switcher-trigger {
+        min-width: auto;
+        padding: 8px 12px;
+    }
+    
+    .trigger-label {
+        display: none;
+    }
+    
+    .property-owner {
+        display: none;
+    }
+    
+    .property-switcher-dropdown {
+        left: auto;
+        right: 0;
+        min-width: 320px;
+    }
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .property-switcher-trigger {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+[data-theme="dark"] .property-switcher-dropdown {
+    background: var(--color-surface);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .dropdown-search input {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .option-icon {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .unit-count {
+    background: rgba(255, 255, 255, 0.05);
+}
