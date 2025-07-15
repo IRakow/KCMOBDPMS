@@ -16,7 +16,7 @@ passlib[bcrypt]==1.7.4
 python-dotenv==1.0.0
 
 # Email
-# Removed emails and fastapi-mail - causing build issues on Render
+email-validator>=2.0
 
 # File handling
 # Removed python-magic - requires system dependencies
