@@ -81,7 +81,7 @@ const AdminPortalV3 = ({ user, onLogout }) => {
             case 'owner-portal':
                 return React.createElement((window.AppModules && window.AppModules.OwnerPortal) || (() => React.createElement('div', {}, 'Owner Portal loading...')));
             case 'messaging':
-                return React.createElement((window.AppModules && window.AppModules.GmailClone) || (() => React.createElement('div', {}, 'Mail component not loaded')));
+                return React.createElement((window.AppModules && window.AppModules.ProfessionalMailWorking) || (() => React.createElement('div', {}, 'Mail component not loaded')));
             case 'calendar':
                 return React.createElement((window.AppModules && window.AppModules.SimpleCalendar) || (() => React.createElement('div', {}, 'Calendar component not loaded')));
             case 'maintenance':
