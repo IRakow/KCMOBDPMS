@@ -1,14 +1,36 @@
-// GeminiVisionService.js - AI-powered photo analysis for maintenance
+// GeminiVisionService.js - Professional AI-powered photo analysis for maintenance
 class GeminiVisionService {
     constructor() {
-        this.apiKey = process.env.GEMINI_API_KEY || '';
-        this.apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro-vision:generateContent';
+        this.apiKey = process.env.REACT_APP_GEMINI_API_KEY || '';
+        this.apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-vision-latest:generateContent';
+        this.maxImageSize = 20 * 1024 * 1024; // 20MB limit
+        this.supportedFormats = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif'];
     }
 
-    // Analyze maintenance photo and provide insights
+    // Main photo analysis function with enhanced error handling
     async analyzeMaintenancePhoto(imageData, context = {}) {
         try {
-            const prompt = this.buildMaintenancePrompt(context);
+            console.log('Starting professional maintenance photo analysis...');
+            
+            // Validate input data
+            if (!imageData || (!imageData.base64 && !imageData.file)) {
+                throw new Error('No valid image data provided');
+            }
+
+            // Handle File object if provided
+            let base64Data = imageData.base64;
+            let mimeType = imageData.mimeType;
+            
+            if (imageData.file) {
+                const validation = await this.validateImage(imageData.file);
+                if (!validation.valid) {
+                    throw new Error(validation.error);
+                }
+                base64Data = await this.fileToBase64(imageData.file);
+                mimeType = imageData.file.type;
+            }
+
+            const prompt = this.buildEnhancedMaintenancePrompt(context);
             
             const response = await fetch(`${this.apiUrl}?key=${this.apiKey}`, {
                 method: 'POST',
@@ -18,100 +40,236 @@ class GeminiVisionService {
                 body: JSON.stringify({
                     contents: [{
                         parts: [
-                            {
-                                text: prompt
-                            },
+                            { text: prompt },
                             {
                                 inline_data: {
-                                    mime_type: imageData.mimeType || 'image/jpeg',
-                                    data: imageData.base64
+                                    mime_type: mimeType || 'image/jpeg',
+                                    data: base64Data
                                 }
                             }
                         ]
                     }],
                     generationConfig: {
-                        temperature: 0.3,
-                        topK: 40,
-                        topP: 0.95,
-                        maxOutputTokens: 1024,
-                    }
+                        temperature: 0.4,
+                        topK: 32,
+                        topP: 1,
+                        maxOutputTokens: 4096,
+                    },
+                    safetySettings: [
+                        {
+                            category: "HARM_CATEGORY_HARASSMENT",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        },
+                        {
+                            category: "HARM_CATEGORY_HATE_SPEECH",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        },
+                        {
+                            category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        },
+                        {
+                            category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        }
+                    ]
                 })
             });
 
             if (!response.ok) {
-                throw new Error(`Gemini API error: ${response.statusText}`);
+                throw new Error(`Gemini API error: ${response.status} ${response.statusText}`);
             }
 
             const data = await response.json();
-            const analysis = data.candidates[0].content.parts[0].text;
             
-            return this.parseMaintenanceAnalysis(analysis, context);
+            if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+                throw new Error('Invalid response from Gemini Vision API');
+            }
+
+            const analysis = data.candidates[0].content.parts[0].text;
+            const result = this.parseEnhancedAnalysis(analysis, context);
+            
+            // Log analysis in conversation system
+            this.logPhotoAnalysis(result.analysis, context);
+            
+            return result;
         } catch (error) {
             console.error('Error analyzing photo with Gemini:', error);
             return this.getFallbackAnalysis(context);
         }
     }
 
-    // Build context-aware prompt for maintenance analysis
-    buildMaintenancePrompt(context) {
-        const { category, description, property, unit } = context;
-        
-        return `You are an expert property maintenance analyst. Analyze this photo of a maintenance issue and provide detailed insights.
+    // Validate image file
+    async validateImage(imageFile) {
+        if (!imageFile) {
+            return { valid: false, error: 'No image file provided' };
+        }
 
-Context:
-- Property: ${property || 'Unknown'}
-- Unit: ${unit || 'Unknown'}
-- Category: ${category || 'General'}
-- Tenant Description: "${description || 'No description provided'}"
+        if (!this.supportedFormats.includes(imageFile.type)) {
+            return { 
+                valid: false, 
+                error: `Unsupported format. Supported: ${this.supportedFormats.join(', ')}` 
+            };
+        }
 
-Please analyze the image and provide:
+        if (imageFile.size > this.maxImageSize) {
+            return { 
+                valid: false, 
+                error: `Image too large. Max size: ${this.maxImageSize / (1024 * 1024)}MB` 
+            };
+        }
 
-1. ISSUE IDENTIFICATION:
-   - What specific maintenance issue(s) can you see?
-   - What is the likely cause?
-
-2. SEVERITY ASSESSMENT:
-   - Rate severity: Low/Medium/High/Emergency
-   - Explain why this severity level
-
-3. SAFETY CONCERNS:
-   - Are there any immediate safety hazards?
-   - Does this require urgent attention?
-
-4. REPAIR RECOMMENDATIONS:
-   - What type of repair is needed?
-   - Estimated time for repair
-   - Special equipment or expertise required?
-
-5. VENDOR MATCHING:
-   - What type of specialist is needed? (plumber, electrician, etc.)
-   - Any specific skills required?
-
-6. COST ESTIMATION:
-   - Rough cost range for the repair
-   - Factors that might affect cost
-
-7. PREVENTION TIPS:
-   - How can this be prevented in the future?
-   - Any maintenance recommendations?
-
-Format your response as JSON with these exact keys:
-{
-    "issue": "description of the issue",
-    "severity": "Low|Medium|High|Emergency",
-    "safetyHazard": true|false,
-    "safetyDetails": "any safety concerns",
-    "repairType": "type of repair needed",
-    "estimatedTime": "time estimate",
-    "vendorType": "plumber|electrician|hvac|general|other",
-    "specialSkills": ["skill1", "skill2"],
-    "costRange": { "min": 100, "max": 500 },
-    "preventionTips": ["tip1", "tip2"],
-    "additionalNotes": "any other observations"
-}`;
+        return { valid: true };
     }
 
-    // Parse AI response into structured data
+    // Convert File object to base64
+    async fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const base64String = reader.result.split(',')[1];
+                resolve(base64String);
+            };
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // Build enhanced maintenance analysis prompt
+    buildEnhancedMaintenancePrompt(context) {
+        const { category, description, property, unit, tenantName, location } = context;
+        
+        return `You are a professional property maintenance assessment AI analyzing property maintenance issues. Please provide a detailed analysis of this image in JSON format.
+
+Property Context:
+- Property: ${property || 'Unknown'}
+- Unit: ${unit || 'Unknown'}
+- Reporter: ${tenantName || 'Unknown'}
+- Location: ${location || 'Unknown'}
+- Category: ${category || 'General'}
+- Description: "${description || 'No description provided'}"
+
+Please analyze the image and provide a response in this exact JSON structure:
+
+{
+  "issueDetected": true/false,
+  "category": "plumbing|electrical|hvac|structural|appliance|cosmetic|safety|other",
+  "severity": "low|medium|high|emergency",
+  "title": "Brief descriptive title",
+  "description": "Detailed description of the issue",
+  "urgency": "routine|urgent|emergency",
+  "estimatedCost": {
+    "min": number,
+    "max": number,
+    "currency": "USD"
+  },
+  "timeToComplete": {
+    "min": number,
+    "max": number,
+    "unit": "hours|days"
+  },
+  "requiredSkills": ["skill1", "skill2"],
+  "recommendedVendors": ["vendor_type1", "vendor_type2"],
+  "safetyRisk": true/false,
+  "requiresPermit": true/false,
+  "materials": ["material1", "material2"],
+  "preventiveMeasures": ["measure1", "measure2"],
+  "followUpRequired": true/false,
+  "additionalNotes": "Any additional observations",
+  "confidence": number (0-100)
+}
+
+Analysis Guidelines:
+1. Be thorough and professional
+2. Consider safety implications
+3. Provide realistic cost estimates
+4. Include preventive measures
+5. Note if emergency response is needed
+6. Assess structural vs cosmetic issues
+7. Consider code compliance requirements
+
+If no maintenance issue is visible, set issueDetected to false and provide appropriate explanations.`;
+    }
+
+    // Parse enhanced AI response into structured data
+    parseEnhancedAnalysis(analysisText, context) {
+        try {
+            // Clean the response text to extract JSON
+            const jsonMatch = analysisText.match(/\{[\s\S]*\}/);
+            if (!jsonMatch) {
+                throw new Error('No JSON found in response');
+            }
+
+            const analysis = JSON.parse(jsonMatch[0]);
+            
+            // Validate required fields
+            const requiredFields = ['issueDetected', 'category', 'severity', 'title', 'description'];
+            for (const field of requiredFields) {
+                if (!(field in analysis)) {
+                    throw new Error(`Missing required field: ${field}`);
+                }
+            }
+
+            // Set defaults for optional fields and format response
+            return {
+                success: true,
+                analysis: {
+                    issueDetected: analysis.issueDetected,
+                    category: analysis.category,
+                    severity: analysis.severity,
+                    title: analysis.title,
+                    description: analysis.description,
+                    urgency: analysis.urgency || analysis.severity,
+                    estimatedCost: analysis.estimatedCost || { min: 50, max: 200, currency: 'USD' },
+                    timeToComplete: analysis.timeToComplete || { min: 1, max: 4, unit: 'hours' },
+                    requiredSkills: analysis.requiredSkills || ['general_maintenance'],
+                    recommendedVendors: analysis.recommendedVendors || ['handyman'],
+                    safetyRisk: analysis.safetyRisk || false,
+                    requiresPermit: analysis.requiresPermit || false,
+                    materials: analysis.materials || [],
+                    preventiveMeasures: analysis.preventiveMeasures || [],
+                    followUpRequired: analysis.followUpRequired || false,
+                    additionalNotes: analysis.additionalNotes || '',
+                    confidence: analysis.confidence || 85,
+                    timestamp: new Date().toISOString(),
+                    model: 'gemini-1.5-pro-vision'
+                }
+            };
+
+        } catch (error) {
+            console.error('Error parsing enhanced analysis response:', error);
+            
+            // Fallback to text parsing
+            return this.parseMaintenanceAnalysis(analysisText, context);
+        }
+    }
+
+    // Log photo analysis in conversation system
+    logPhotoAnalysis(analysis, context) {
+        if (window.ConversationLogService) {
+            window.ConversationLogService.logConversation({
+                type: 'maintenance_photo_analysis',
+                participantId: 'gemini_vision_ai',
+                participantName: 'AI Photo Analyst',
+                participantType: 'ai_system',
+                propertyId: context.propertyId,
+                propertyName: context.property,
+                unitNumber: context.unit,
+                content: `AI analyzed maintenance photo: ${analysis.title}. Severity: ${analysis.severity}. Confidence: ${analysis.confidence}%`,
+                channel: 'maintenance_system',
+                metadata: {
+                    issueCategory: analysis.category,
+                    severity: analysis.severity,
+                    confidence: analysis.confidence,
+                    estimatedCost: analysis.estimatedCost,
+                    safetyRisk: analysis.safetyRisk,
+                    aiModel: 'gemini-1.5-pro-vision'
+                }
+            });
+        }
+    }
+
+    // Legacy parser for backward compatibility
     parseMaintenanceAnalysis(analysisText, context) {
         try {
             // Try to parse as JSON first
@@ -373,9 +531,108 @@ class MockGeminiVisionService extends GeminiVisionService {
             }
         };
     }
+
+    // Check if Gemini Vision is configured
+    isConfigured() {
+        return !!this.apiKey;
+    }
+
+    // Get service status
+    getStatus() {
+        return {
+            configured: this.isConfigured(),
+            apiUrl: this.apiUrl,
+            maxImageSize: this.maxImageSize,
+            supportedFormats: this.supportedFormats,
+            model: 'gemini-1.5-pro-vision-latest'
+        };
+    }
+
+    // Test connection to Gemini Vision API
+    async testConnection() {
+        try {
+            const testResponse = await fetch(`${this.apiUrl}?key=${this.apiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{ text: 'Test connection' }]
+                    }]
+                })
+            });
+
+            return {
+                success: testResponse.ok,
+                status: testResponse.status,
+                message: testResponse.ok ? 'Connection successful' : 'Connection failed'
+            };
+        } catch (error) {
+            return {
+                success: false,
+                message: error.message
+            };
+        }
+    }
+
+    // Generate structured maintenance request from analysis
+    generateMaintenanceRequest(analysis, context) {
+        const priority = this.mapSeverityToPriority(analysis.severity);
+        const requestId = 'MR_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+
+        return {
+            id: requestId,
+            title: analysis.title,
+            description: analysis.description,
+            category: analysis.category,
+            priority: priority,
+            urgency: analysis.urgency,
+            status: 'submitted',
+            propertyId: context.propertyId,
+            propertyName: context.property,
+            unitNumber: context.unit,
+            tenantId: context.tenantId,
+            tenantName: context.tenantName,
+            reportedBy: context.tenantName,
+            location: context.location,
+            estimatedCost: analysis.estimatedCost,
+            timeToComplete: analysis.timeToComplete,
+            requiredSkills: analysis.requiredSkills,
+            recommendedVendors: analysis.recommendedVendors,
+            safetyRisk: analysis.safetyRisk,
+            requiresPermit: analysis.requiresPermit,
+            materials: analysis.materials,
+            preventiveMeasures: analysis.preventiveMeasures,
+            followUpRequired: analysis.followUpRequired,
+            additionalNotes: analysis.additionalNotes,
+            aiAnalysis: {
+                confidence: analysis.confidence,
+                processedAt: new Date().toISOString(),
+                model: 'gemini-1.5-pro-vision'
+            },
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+            photos: [{
+                id: 'photo_' + Date.now(),
+                originalName: context.fileName || 'maintenance_photo.jpg',
+                analyzedAt: new Date().toISOString(),
+                analysisConfidence: analysis.confidence
+            }]
+        };
+    }
+
+    // Map severity to priority levels
+    mapSeverityToPriority(severity) {
+        const mapping = {
+            'low': 'low',
+            'medium': 'normal',
+            'high': 'high',
+            'emergency': 'emergency'
+        };
+        return mapping[severity] || 'normal';
+    }
 }
 
 // Export service
-window.GeminiVisionService = window.GeminiVisionService || (
-    process.env.GEMINI_API_KEY ? GeminiVisionService : MockGeminiVisionService
-);
+window.GeminiVisionService = window.GeminiVisionService || new GeminiVisionService();

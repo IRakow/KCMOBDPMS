@@ -29,6 +29,21 @@ const Login = () => {
         }
     };
 
+    const quickLogin = (userType) => {
+        const credentials = {
+            'property-owner': { email: 'owner@demo.com', password: 'demo123' },
+            'administrator': { email: 'admin@demo.com', password: 'demo123' },
+            'property-manager': { email: 'manager@demo.com', password: 'demo123' },
+            'maintenance': { email: 'maintenance@demo.com', password: 'demo123' },
+            'vendor': { email: 'vendor@demo.com', password: 'demo123' },
+            'resident': { email: 'resident@demo.com', password: 'demo123' }
+        };
+
+        if (credentials[userType]) {
+            setFormData(credentials[userType]);
+        }
+    };
+
     return (
         <div className="auth-container">
             <div className="auth-card">
@@ -80,13 +95,155 @@ const Login = () => {
                 </form>
 
                 <div style={{ marginTop: '24px', textAlign: 'center' }}>
-                    <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
-                        Portal access:
+                    <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', marginBottom: '12px' }}>
+                        Quick Login:
                     </p>
-                    <p style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '8px' }}>
-                        Super Admin • Property Owner • Administrator<br />
-                        Property Manager • Maintenance Staff • Vendor • Resident
-                    </p>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', marginBottom: '16px' }}>
+                        <button 
+                            type="button"
+                            style={{
+                                padding: '8px 12px',
+                                fontSize: '11px',
+                                border: '1px solid #e5e7eb',
+                                borderRadius: '6px',
+                                background: '#f9fafb',
+                                color: '#374151',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease'
+                            }}
+                            onMouseOver={(e) => {
+                                e.target.style.background = '#f3f4f6';
+                                e.target.style.borderColor = '#d1d5db';
+                            }}
+                            onMouseOut={(e) => {
+                                e.target.style.background = '#f9fafb';
+                                e.target.style.borderColor = '#e5e7eb';
+                            }}
+                            onClick={() => quickLogin('property-owner')}
+                        >
+                            Owner
+                        </button>
+                        <button 
+                            type="button"
+                            style={{
+                                padding: '8px 12px',
+                                fontSize: '11px',
+                                border: '1px solid #e5e7eb',
+                                borderRadius: '6px',
+                                background: '#f9fafb',
+                                color: '#374151',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease'
+                            }}
+                            onMouseOver={(e) => {
+                                e.target.style.background = '#f3f4f6';
+                                e.target.style.borderColor = '#d1d5db';
+                            }}
+                            onMouseOut={(e) => {
+                                e.target.style.background = '#f9fafb';
+                                e.target.style.borderColor = '#e5e7eb';
+                            }}
+                            onClick={() => quickLogin('administrator')}
+                        >
+                            Administrator
+                        </button>
+                        <button 
+                            type="button"
+                            style={{
+                                padding: '8px 12px',
+                                fontSize: '11px',
+                                border: '1px solid #e5e7eb',
+                                borderRadius: '6px',
+                                background: '#f9fafb',
+                                color: '#374151',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease'
+                            }}
+                            onMouseOver={(e) => {
+                                e.target.style.background = '#f3f4f6';
+                                e.target.style.borderColor = '#d1d5db';
+                            }}
+                            onMouseOut={(e) => {
+                                e.target.style.background = '#f9fafb';
+                                e.target.style.borderColor = '#e5e7eb';
+                            }}
+                            onClick={() => quickLogin('property-manager')}
+                        >
+                            Manager
+                        </button>
+                        <button 
+                            type="button"
+                            style={{
+                                padding: '8px 12px',
+                                fontSize: '11px',
+                                border: '1px solid #e5e7eb',
+                                borderRadius: '6px',
+                                background: '#f9fafb',
+                                color: '#374151',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease'
+                            }}
+                            onMouseOver={(e) => {
+                                e.target.style.background = '#f3f4f6';
+                                e.target.style.borderColor = '#d1d5db';
+                            }}
+                            onMouseOut={(e) => {
+                                e.target.style.background = '#f9fafb';
+                                e.target.style.borderColor = '#e5e7eb';
+                            }}
+                            onClick={() => quickLogin('maintenance')}
+                        >
+                            Maintenance
+                        </button>
+                        <button 
+                            type="button"
+                            style={{
+                                padding: '8px 12px',
+                                fontSize: '11px',
+                                border: '1px solid #e5e7eb',
+                                borderRadius: '6px',
+                                background: '#f9fafb',
+                                color: '#374151',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease'
+                            }}
+                            onMouseOver={(e) => {
+                                e.target.style.background = '#f3f4f6';
+                                e.target.style.borderColor = '#d1d5db';
+                            }}
+                            onMouseOut={(e) => {
+                                e.target.style.background = '#f9fafb';
+                                e.target.style.borderColor = '#e5e7eb';
+                            }}
+                            onClick={() => quickLogin('vendor')}
+                        >
+                            Vendor
+                        </button>
+                        <button 
+                            type="button"
+                            style={{
+                                padding: '8px 12px',
+                                fontSize: '11px',
+                                border: '1px solid #e5e7eb',
+                                borderRadius: '6px',
+                                background: '#f9fafb',
+                                color: '#374151',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease'
+                            }}
+                            onMouseOver={(e) => {
+                                e.target.style.background = '#f3f4f6';
+                                e.target.style.borderColor = '#d1d5db';
+                            }}
+                            onMouseOut={(e) => {
+                                e.target.style.background = '#f9fafb';
+                                e.target.style.borderColor = '#e5e7eb';
+                            }}
+                            onClick={() => quickLogin('resident')}
+                        >
+                            Resident
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

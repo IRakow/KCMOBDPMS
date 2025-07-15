@@ -106,11 +106,57 @@ const TenantMaintenanceChat = ({ property, unit, tenant, onRequestCreated }) => 
         addMessage('user', input);
         setIsListening(false);
 
+        // Log voice conversation in ConversationLogService
+        window.ConversationLogService?.logConversation({
+            type: 'voice',
+            participantId: tenant?.id || 'anonymous',
+            participantName: tenant?.name || 'Tenant',
+            participantType: 'tenant',
+            propertyName: property?.name || 'Unknown Property',
+            unitNumber: unit?.number || '',
+            content: input,
+            channel: 'maintenance_chat',
+            isInbound: true,
+            metadata: {
+                voiceTranscription: true,
+                maintenanceStage: maintenanceContext.stage,
+                category: maintenanceContext.category,
+                severity: maintenanceContext.severity
+            }
+        });
+
         // Analyze input based on current stage
         const response = await analyzeInput(input);
         
         if (response.message) {
             addMessage('ai', response.message);
+            
+            // Log AI response
+            window.ConversationLogService?.logAIConversation({
+                conversationType: 'voice',
+                userId: tenant?.id || 'anonymous',
+                userName: tenant?.name || 'Tenant',
+                userType: 'tenant',
+                propertyContext: {
+                    propertyId: property?.id,
+                    propertyName: property?.name,
+                    unitNumber: unit?.number
+                },
+                aiModel: 'maintenance-assistant',
+                prompt: input,
+                response: response.message,
+                metadata: {
+                    intent: 'maintenance_request',
+                    entities: {
+                        category: maintenanceContext.category,
+                        severity: maintenanceContext.severity,
+                        stage: maintenanceContext.stage
+                    },
+                    confidence: response.confidence || 0.9
+                },
+                conversationContext: maintenanceContext
+            });
+            
             if (voiceEnabled) {
                 await speak(response.message);
             }

@@ -442,6 +442,24 @@ const ConversationDetailPremium = ({ conversation, onClose }) => {
         };
         
         setMessages([...messages, message]);
+        
+        // Log the conversation in ConversationLogService
+        window.ConversationLogService?.logConversation({
+            type: 'text',
+            participantId: conversation.id,
+            participantName: conversation.participant_name,
+            participantType: conversation.participant_type,
+            propertyName: conversation.property_name,
+            unitNumber: conversation.unit_number,
+            content: newMessage,
+            channel: 'messaging_hub',
+            isInbound: false,
+            metadata: {
+                originalConversationId: conversation.id,
+                messageId: message.id
+            }
+        });
+        
         setNewMessage('');
         
         try {

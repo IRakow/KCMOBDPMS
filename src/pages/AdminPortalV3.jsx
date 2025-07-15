@@ -131,6 +131,8 @@ const AdminPortalV3 = ({ user, onLogout }) => {
                         onPageChange={(newPage) => {
                             console.log('Sidebar changing page from', activePage, 'to', newPage);
                             setActivePage(newPage);
+                            // Scroll to top when changing pages
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}
                         collapsed={sidebarCollapsed}
                     />

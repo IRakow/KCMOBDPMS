@@ -350,7 +350,11 @@ const ReportsCenter = () => {
                                         <div 
                                             key={report.id} 
                                             className="report-item"
-                                            onClick={() => runReport(report, categoryId)}
+                                            onClick={() => {
+                                                runReport(report, categoryId);
+                                                // Scroll to top when loading a report
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }}
                                         >
                                             <div className="report-info">
                                                 <h4>{report.name}</h4>
@@ -454,7 +458,11 @@ const ReportsCenter = () => {
                                             <button 
                                                 key={report.id}
                                                 className="recent-report-btn"
-                                                onClick={() => runReport(report, report.categoryId)}
+                                                onClick={() => {
+                                                    runReport(report, report.categoryId);
+                                                    // Scroll to top when loading a report
+                                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                }}
                                             >
                                                 <i className={`fas ${reportCategories[report.categoryId]?.icon}`}></i>
                                                 {report.name}
