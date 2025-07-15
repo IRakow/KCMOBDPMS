@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Tenants Page</title>
+    <link rel="stylesheet" href="/src/styles/tenants.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="tenants-page">
+        <div class="insights-row">
+            <div class="insight-card warning">
+                <div class="insight-icon warning">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="insight-content">
+                    <h4>5 Leases Expiring Soon</h4>
+                    <p>Within next 60 days</p>
+                </div>
+                <button class="insight-action">View Leases</button>
+            </div>
+            <div class="insight-card alert">
+                <div class="insight-icon alert">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="insight-content">
+                    <h4>3 Overdue Payments</h4>
+                    <p>Total: $4,850</p>
+                </div>
+                <button class="insight-action">Send Reminders</button>
+            </div>
+            <div class="insight-card info">
+                <div class="insight-icon info">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="insight-content">
+                    <h4>8 New Applications</h4>
+                    <p>Awaiting review</p>
+                </div>
+                <button class="insight-action">Review</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
