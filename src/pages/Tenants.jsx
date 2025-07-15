@@ -165,36 +165,27 @@ const Tenants = () => {
         <div className="tenants-page">
             {/* Smart Insights */}
             <div className="insights-row">
-                <div className="insight-card warning">
-                    <div className="insight-icon warning">
-                        <i className="fas fa-clock"></i>
-                    </div>
-                    <div className="insight-content">
-                        <h4>5 Leases Expiring Soon</h4>
-                        <p>Within next 60 days</p>
-                    </div>
-                    <button className="insight-action">View Leases</button>
-                </div>
-                <div className="insight-card alert">
-                    <div className="insight-icon alert">
-                        <i className="fas fa-exclamation-circle"></i>
-                    </div>
-                    <div className="insight-content">
-                        <h4>3 Overdue Payments</h4>
-                        <p>Total: $4,850</p>
-                    </div>
-                    <button className="insight-action">Send Reminders</button>
-                </div>
-                <div className="insight-card info">
-                    <div className="insight-icon info">
-                        <i className="fas fa-user-check"></i>
-                    </div>
-                    <div className="insight-content">
-                        <h4>8 New Applications</h4>
-                        <p>Awaiting review</p>
-                    </div>
-                    <button className="insight-action">Review</button>
-                </div>
+                <InsightCard
+                    type="warning"
+                    icon="fa-clock"
+                    title="5 Leases Expiring Soon"
+                    subtitle="Within next 60 days"
+                    action="View Leases"
+                />
+                <InsightCard
+                    type="alert"
+                    icon="fa-exclamation-circle"
+                    title="3 Overdue Payments"
+                    subtitle="Total: $4,850"
+                    action="Send Reminders"
+                />
+                <InsightCard
+                    type="info"
+                    icon="fa-user-check"
+                    title="8 New Applications"
+                    subtitle="Awaiting review"
+                    action="Review"
+                />
             </div>
             
             {/* Page Header */}
