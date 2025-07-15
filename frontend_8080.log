@@ -1,0 +1,27 @@
+::1 - - [15/Jul/2025 01:57:19] "GET /src/styles/tenants.css HTTP/1.1" 200 -
+::1 - - [15/Jul/2025 01:57:33] "GET /index.html HTTP/1.1" 200 -
+::1 - - [15/Jul/2025 01:57:51] "GET / HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 01:57:51] "GET /src/styles/gmail-clone.css HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 01:57:51] "GET /src/components/ProfessionalMailWorking.jsx HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 01:57:51] "GET /src/components/GmailClone.jsx HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 01:57:58] code 404, message File not found
+::1 - - [15/Jul/2025 01:57:58] "GET /logo.png HTTP/1.1" 404 -
+::1 - - [15/Jul/2025 02:00:06] "GET /src/styles/tenants.css HTTP/1.1" 200 -
+::1 - - [15/Jul/2025 02:00:19] "GET /src/styles/tenants.css?v=1752570019 HTTP/1.1" 200 -
+::1 - - [15/Jul/2025 02:00:25] "GET /index.html HTTP/1.1" 200 -
+::1 - - [15/Jul/2025 02:00:46] "GET / HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 02:09:04] "GET / HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 02:09:04] "GET /src/styles/gmail-clone.css HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 02:09:04] "GET /src/components/ProfessionalMailWorking.jsx HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 02:09:04] "GET /src/components/GmailClone.jsx HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 02:09:52] code 404, message File not found
+::1 - - [15/Jul/2025 02:09:52] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [15/Jul/2025 02:11:11] "GET / HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 02:11:11] code 404, message File not found
+::1 - - [15/Jul/2025 02:11:11] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [15/Jul/2025 02:16:59] "GET / HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 02:16:59] code 404, message File not found
+::1 - - [15/Jul/2025 02:16:59] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [15/Jul/2025 02:16:59] "GET /src/styles/gmail-clone.css HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 02:16:59] "GET /src/components/ProfessionalMailWorking.jsx HTTP/1.1" 304 -
+::1 - - [15/Jul/2025 02:16:59] "GET /src/components/GmailClone.jsx HTTP/1.1" 304 -

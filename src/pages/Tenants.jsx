@@ -29,7 +29,7 @@ const Tenants = () => {
             if (filters.status !== 'all') params.append('status', filters.status);
             if (filters.search) params.append('search', filters.search);
             
-            const response = await fetch(`http://localhost:8000/api/tenants?${params}`, {
+            const response = await fetch(`http://localhost:8000/api/v1/tenants?${params}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('access_token')}`
                 }
@@ -48,7 +48,7 @@ const Tenants = () => {
     
     const loadProperties = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/properties', {
+            const response = await fetch('http://localhost:8000/api/v1/properties', {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('access_token')}`
                 }
@@ -418,7 +418,7 @@ const AddTenantModal = ({ onClose, onSave }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:8000/api/tenants', {
+            const response = await fetch('http://localhost:8000/api/v1/tenants', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

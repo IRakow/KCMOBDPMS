@@ -8,11 +8,18 @@ const Leases = () => {
     });
     
     React.useEffect(() => {
+        // Set mock data immediately to prevent loading state
+        setLeases(mockLeases);
+        // Then try to load from API
         loadLeases();
     }, [filters]);
     
     const loadLeases = async () => {
         try {
+            // Add timeout to prevent hanging
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 2000); // 2 second timeout
+            
             const params = new URLSearchParams();
             Object.entries(filters).forEach(([key, value]) => {
                 if (value && value !== 'all') params.append(key, value);
@@ -21,14 +28,21 @@ const Leases = () => {
             const response = await fetch(`http://localhost:8000/api/leases?${params}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-                }
+                },
+                signal: controller.signal
             });
             
-            const data = await response.json();
-            setLeases(data);
+            clearTimeout(timeoutId);
+            
+            if (response.ok) {
+                const data = await response.json();
+                setLeases(data);
+            } else {
+                throw new Error('API response not ok');
+            }
         } catch (error) {
             console.error('Failed to load leases:', error);
-            // Use mock data for demo
+            // Always use mock data for demo when API fails
             setLeases(mockLeases);
         }
     };
@@ -712,3 +726,7 @@ const mockLeases = [
         status: 'expired'
     }
 ];
+
+// Export component
+window.AppModules = window.AppModules || {};
+window.AppModules.Leases = Leases;

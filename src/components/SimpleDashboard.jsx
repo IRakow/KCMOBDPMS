@@ -34,6 +34,29 @@ const SimpleDashboard = ({ user }) => {
             widget_type: 'leases',
             position: { x: 3, y: 1, w: 1, h: 1 },
             data: { expiring: 8, thisMonth: 3 }
+        },
+        {
+            id: 'widget_6',
+            widget_type: 'delinquency',
+            position: { x: 0, y: 2, w: 3, h: 1 },
+            data: { 
+                total: 188,
+                overdue_0_30: 73,
+                overdue_31_60: 64,
+                overdue_60_plus: 51,
+                total_amount: 10417
+            }
+        },
+        {
+            id: 'widget_7',
+            widget_type: 'insurance',
+            position: { x: 3, y: 2, w: 1, h: 1 },
+            data: {
+                total_policies: 1457,
+                expiring_30d: 20,
+                coverage_rate: 89.4,
+                missing_insurance: 108
+            }
         }
     ]);
 
@@ -135,6 +158,21 @@ const SimpleDashboard = ({ user }) => {
                 return { today: 3, nextEvent: '10:00 AM - Staff Meeting' };
             case 'leases':
                 return { expiring: 5, thisMonth: 2 };
+            case 'delinquency':
+                return { 
+                    total: 145,
+                    overdue_0_30: 58,
+                    overdue_31_60: 47,
+                    overdue_60_plus: 40,
+                    total_amount: 8750
+                };
+            case 'insurance':
+                return {
+                    total_policies: 1200,
+                    expiring_30d: 15,
+                    coverage_rate: 87.2,
+                    missing_insurance: 85
+                };
             default:
                 return {};
         }
@@ -333,6 +371,85 @@ const SimpleDashboard = ({ user }) => {
                             )}
                         </div>
                     )}
+                    
+                    {widget.widget_type === 'delinquency' && (
+                        <div style={{ padding: '8px' }}>
+                            <div style={{ 
+                                display: 'flex', 
+                                justifyContent: 'space-between', 
+                                alignItems: 'center',
+                                marginBottom: '8px'
+                            }}>
+                                <div style={{ 
+                                    fontSize: '16px', 
+                                    fontWeight: '600',
+                                    color: '#1f2937'
+                                }}>
+                                    Delinquencies
+                                </div>
+                                <div style={{ 
+                                    fontSize: '18px', 
+                                    fontWeight: '700',
+                                    color: '#ef4444'
+                                }}>
+                                    ${widget.data.total_amount.toLocaleString()}
+                                </div>
+                            </div>
+                            <div style={{ 
+                                display: 'grid', 
+                                gridTemplateColumns: '1fr 1fr 1fr',
+                                gap: '8px',
+                                fontSize: '12px'
+                            }}>
+                                <div style={{ textAlign: 'center' }}>
+                                    <div style={{ fontWeight: '600', color: '#f59e0b' }}>
+                                        {widget.data.overdue_0_30}
+                                    </div>
+                                    <div style={{ opacity: 0.6 }}>0-30 Days</div>
+                                </div>
+                                <div style={{ textAlign: 'center' }}>
+                                    <div style={{ fontWeight: '600', color: '#ef4444' }}>
+                                        {widget.data.overdue_31_60}
+                                    </div>
+                                    <div style={{ opacity: 0.6 }}>31-60 Days</div>
+                                </div>
+                                <div style={{ textAlign: 'center' }}>
+                                    <div style={{ fontWeight: '600', color: '#991b1b' }}>
+                                        {widget.data.overdue_60_plus}
+                                    </div>
+                                    <div style={{ opacity: 0.6 }}>60+ Days</div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {widget.widget_type === 'insurance' && (
+                        <div style={{ textAlign: 'center' }}>
+                            <div style={{ 
+                                fontSize: widget.position.h === 1 ? '20px' : '28px', 
+                                fontWeight: '700', 
+                                lineHeight: 1,
+                                color: '#3b82f6',
+                                marginBottom: widget.position.h === 1 ? '1px' : '2px'
+                            }}>
+                                {widget.data.coverage_rate}%
+                            </div>
+                            <div style={{ fontSize: '10px', opacity: 0.6 }}>
+                                Coverage Rate
+                            </div>
+                            {widget.position.h > 1 && (
+                                <>
+                                    <div style={{ 
+                                        fontSize: '9px', 
+                                        opacity: 0.5,
+                                        marginTop: '2px'
+                                    }}>
+                                        {widget.data.expiring_30d} expiring in 30d
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                    )}
                 </div>
                 
                 {/* Resize Handle */}
@@ -514,7 +631,9 @@ const SimpleDashboard = ({ user }) => {
                                 { type: 'revenue', name: 'Revenue', icon: '💰', color: '#3b82f6' },
                                 { type: 'maintenance', name: 'Maintenance', icon: '🔧', color: '#f59e0b' },
                                 { type: 'calendar', name: 'Calendar', icon: '📅', color: '#667eea' },
-                                { type: 'leases', name: 'Leases', icon: '📄', color: '#8b5cf6' }
+                                { type: 'leases', name: 'Leases', icon: '📄', color: '#8b5cf6' },
+                                { type: 'delinquency', name: 'Delinquencies', icon: '⚠️', color: '#ef4444' },
+                                { type: 'insurance', name: 'Insurance', icon: '🛡️', color: '#3b82f6' }
                             ].map(widget => (
                                 <button
                                     key={widget.type}

@@ -1,9 +1,176 @@
 // ProfessionalMail.jsx - Clean, Light, Professional
+// Ensure React is available
+const React = window.React || {};
+const { useState, useEffect, useRef } = React;
+
+// Check if React hooks are available
+if (!useState || !useEffect) {
+    console.error('React hooks not available! Make sure React is loaded.');
+}
+
 const ProfessionalMail = () => {
-    const [selectedFolder, setSelectedFolder] = React.useState('inbox');
-    const [selectedEmails, setSelectedEmails] = React.useState([]);
-    const [composing, setComposing] = React.useState(false);
-    const [emailView, setEmailView] = React.useState('comfortable'); // comfortable, compact, spacious
+    console.log('ProfessionalMail component loading...');
+    
+    // Use fallback if hooks not available
+    const [selectedFolder, setSelectedFolder] = useState ? useState('inbox') : ['inbox', () => {}];
+    const [selectedEmails, setSelectedEmails] = useState ? useState([]) : [[], () => {}];
+    const [composing, setComposing] = useState ? useState(false) : [false, () => {}];
+    const [emailView, setEmailView] = useState ? useState('comfortable') : ['comfortable', () => {}];
+    const [activeTab, setActiveTab] = useState ? useState('primary') : ['primary', () => {}];
+    const [emails, setEmails] = useState ? useState([]) : [[], () => {}];
+    const [selectedEmail, setSelectedEmail] = useState ? useState(null) : [null, () => {}];
+    const [loading, setLoading] = useState ? useState(true) : [true, () => {}];
+    const [searchQuery, setSearchQuery] = useState ? useState('') : ['', () => {}];
+    const [notes, setNotes] = useState ? useState([]) : [[], () => {}];
+    
+    // Load emails on component mount
+    useEffect(() => {
+        loadEmails();
+    }, [selectedFolder, activeTab]);
+    
+    const loadEmails = async () => {
+        setLoading(true);
+        try {
+            // Mock data for different tabs and folders
+            const mockEmails = {
+                primary: [
+                    {
+                        id: '1',
+                        unread: true,
+                        starred: false,
+                        important: true,
+                        sender: 'Sarah Johnson',
+                        subject: 'Maintenance Request - Unit 203',
+                        snippet: 'Hi, I wanted to report that the kitchen faucet is leaking. It started yesterday and seems to be getting worse...',
+                        time: '10:42 AM',
+                        hasAttachment: true,
+                        labels: [
+                            { color: '#4285f4', text: 'Sunset Apartments' },
+                            { color: '#ea4335', text: 'Urgent' }
+                        ],
+                        content: 'Hi there,\n\nI wanted to report that the kitchen faucet in unit 203 is leaking. It started yesterday and seems to be getting worse. Could someone please take a look at it?\n\nThanks,\nSarah Johnson\nUnit 203',
+                        from: 'sarah.johnson@email.com',
+                        to: 'management@property.com',
+                        date: new Date().toISOString()
+                    },
+                    {
+                        id: '2',
+                        unread: true,
+                        starred: true,
+                        sender: 'Michael Chen',
+                        subject: 'Lease Renewal Question',
+                        snippet: 'I received the lease renewal notice and had a few questions about the terms. Could we schedule a call to discuss...',
+                        time: '9:23 AM',
+                        labels: [
+                            { color: '#0f9d58', text: 'Downtown Plaza' },
+                            { color: '#f4b400', text: 'Leases' }
+                        ],
+                        content: 'Dear Management,\n\nI received the lease renewal notice and had a few questions about the terms. Could we schedule a call to discuss the details?\n\nBest regards,\nMichael Chen',
+                        from: 'michael.chen@email.com',
+                        to: 'management@property.com',
+                        date: new Date(Date.now() - 1000 * 60 * 60).toISOString()
+                    }
+                ],
+                updates: [
+                    {
+                        id: '3',
+                        unread: false,
+                        starred: false,
+                        sender: 'Property System',
+                        subject: 'Monthly Report Generated',
+                        snippet: 'Your monthly property report for October 2024 has been generated and is ready for review...',
+                        time: 'Yesterday',
+                        hasAttachment: true,
+                        labels: [
+                            { color: '#673ab7', text: 'System' },
+                            { color: '#4285f4', text: 'Reports' }
+                        ],
+                        content: 'Your monthly property report for October 2024 has been generated and is ready for review.',
+                        from: 'system@property.com',
+                        to: 'management@property.com',
+                        date: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString()
+                    }
+                ],
+                notes: []
+            };
+            
+            setEmails(mockEmails[activeTab] || []);
+        } catch (error) {
+            console.error('Failed to load emails:', error);
+            setEmails([]);
+        } finally {
+            setLoading(false);
+        }
+    };
+    
+    const loadNotes = async () => {
+        const mockNotes = [
+            {
+                id: '1',
+                title: 'Maintenance Schedule',
+                content: 'Remember to schedule quarterly HVAC maintenance for all units.',
+                created: new Date().toISOString(),
+                property: 'Sunset Apartments',
+                priority: 'high'
+            },
+            {
+                id: '2',
+                title: 'Lease Renewal Reminders',
+                content: 'Send lease renewal notices 90 days before expiration.',
+                created: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
+                property: 'Downtown Plaza',
+                priority: 'medium'
+            }
+        ];
+        setNotes(mockNotes);
+    };
+    
+    useEffect(() => {
+        if (activeTab === 'notes') {
+            loadNotes();
+        }
+    }, [activeTab]);
+    
+    const handleEmailClick = (email) => {
+        console.log('Email clicked:', email);
+        setSelectedEmail(email);
+        if (email.unread) {
+            setEmails(prevEmails => 
+                prevEmails.map(e => 
+                    e.id === email.id ? { ...e, unread: false } : e
+                )
+            );
+        }
+    };
+    
+    const handleDeleteEmail = (emailId) => {
+        setEmails(prevEmails => prevEmails.filter(e => e.id !== emailId));
+        if (selectedEmail?.id === emailId) {
+            setSelectedEmail(null);
+        }
+    };
+    
+    const handleStarToggle = (emailId) => {
+        setEmails(prevEmails => 
+            prevEmails.map(e => 
+                e.id === emailId ? { ...e, starred: !e.starred } : e
+            )
+        );
+    };
+    
+    const filteredEmails = emails.filter(email => 
+        email.sender.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        email.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        email.snippet.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    
+    console.log('ProfessionalMail about to render with state:', {
+        activeTab, 
+        emails: emails.length, 
+        selectedEmail: selectedEmail?.id,
+        loading,
+        composing
+    });
     
     return (
         <div className="professional-mail">
@@ -26,6 +193,8 @@ const ProfessionalMail = () => {
                             type="text" 
                             placeholder="Search mail"
                             className="search-input"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
                         />
                         <button className="search-options">
                             <i className="fas fa-sliders-h"></i>
@@ -51,7 +220,10 @@ const ProfessionalMail = () => {
             <div className="mail-container">
                 {/* Professional Sidebar */}
                 <div className="mail-sidebar">
-                    <button className="compose-btn" onClick={() => setComposing(true)}>
+                    <button className="compose-btn" onClick={() => {
+                        console.log('Compose button clicked');
+                        setComposing(true);
+                    }}>
                         <i className="fas fa-plus"></i>
                         Compose
                     </button>
@@ -62,7 +234,10 @@ const ProfessionalMail = () => {
                             label="Inbox"
                             count={127}
                             active={selectedFolder === 'inbox'}
-                            onClick={() => setSelectedFolder('inbox')}
+                            onClick={() => {
+                                console.log('Inbox folder clicked');
+                                setSelectedFolder('inbox');
+                            }}
                         />
                         <FolderItem
                             icon="fa-star"
@@ -168,69 +343,91 @@ const ProfessionalMail = () => {
                     
                     {/* Tab Bar */}
                     <div className="tab-bar">
-                        <div className="tab active">
+                        <div 
+                            className={`tab ${activeTab === 'primary' ? 'active' : ''}`}
+                            onClick={() => {
+                                console.log('Primary tab clicked');
+                                setActiveTab('primary');
+                            }}
+                        >
                             <i className="fas fa-inbox"></i>
                             Primary
                         </div>
-                        <div className="tab">
+                        <div 
+                            className={`tab ${activeTab === 'promotions' ? 'active' : ''}`}
+                            onClick={() => {
+                                console.log('Promotions tab clicked');
+                                setActiveTab('promotions');
+                            }}
+                        >
                             <i className="fas fa-tag"></i>
                             Promotions
                         </div>
-                        <div className="tab">
+                        <div 
+                            className={`tab ${activeTab === 'updates' ? 'active' : ''}`}
+                            onClick={() => {
+                                console.log('Updates tab clicked');
+                                setActiveTab('updates');
+                            }}
+                        >
                             <i className="fas fa-users"></i>
                             Updates
+                        </div>
+                        <div 
+                            className={`tab ${activeTab === 'notes' ? 'active' : ''}`}
+                            onClick={() => {
+                                console.log('Notes tab clicked');
+                                setActiveTab('notes');
+                            }}
+                        >
+                            <i className="fas fa-sticky-note"></i>
+                            Notes
                         </div>
                     </div>
                     
                     {/* Email Items */}
                     <div className="email-items">
-                        <EmailItem
-                            unread={true}
-                            starred={false}
-                            important={true}
-                            sender="Sarah Johnson"
-                            subject="Maintenance Request - Unit 203"
-                            snippet="Hi, I wanted to report that the kitchen faucet is leaking. It started yesterday and seems to be getting worse..."
-                            time="10:42 AM"
-                            hasAttachment={true}
-                            labels={[
-                                { color: '#4285f4', text: 'Sunset Apartments' },
-                                { color: '#ea4335', text: 'Urgent' }
-                            ]}
-                        />
-                        
-                        <EmailItem
-                            unread={true}
-                            starred={true}
-                            sender="Michael Chen"
-                            subject="Lease Renewal Question"
-                            snippet="I received the lease renewal notice and had a few questions about the terms. Could we schedule a call to discuss..."
-                            time="9:23 AM"
-                            labels={[
-                                { color: '#0f9d58', text: 'Downtown Plaza' },
-                                { color: '#f4b400', text: 'Leases' }
-                            ]}
-                        />
-                        
-                        <EmailItem
-                            unread={false}
-                            starred={false}
-                            sender="Property Owner - Smith Trust"
-                            subject="Monthly Statement Ready"
-                            snippet="Your monthly property management statement for October 2024 is now available. Total collected rent: $45,320..."
-                            time="Yesterday"
-                            hasAttachment={true}
-                            labels={[
-                                { color: '#673ab7', text: 'Owners' },
-                                { color: '#4285f4', text: 'Financial' }
-                            ]}
-                        />
+                        {activeTab === 'notes' ? (
+                            <NotesSection 
+                                notes={notes} 
+                                onAddNote={(note) => setNotes([...notes, { ...note, id: Date.now().toString() }])}
+                                onDeleteNote={(noteId) => setNotes(notes.filter(n => n.id !== noteId))}
+                            />
+                        ) : loading ? (
+                            <div className="loading-emails">
+                                <i className="fas fa-spinner fa-spin"></i>
+                                <p>Loading emails...</p>
+                            </div>
+                        ) : filteredEmails.length === 0 ? (
+                            <div className="no-emails">
+                                <i className="fas fa-inbox" style={{fontSize: '48px', color: '#dadce0', marginBottom: '16px'}}></i>
+                                <p>No emails found</p>
+                            </div>
+                        ) : (
+                            filteredEmails.map(email => (
+                                <EmailItem
+                                    key={email.id}
+                                    email={email}
+                                    selected={selectedEmail?.id === email.id}
+                                    onEmailClick={() => handleEmailClick(email)}
+                                    onStarToggle={() => handleStarToggle(email.id)}
+                                    onDelete={() => handleDeleteEmail(email.id)}
+                                />
+                            ))
+                        )}
                     </div>
                 </div>
                 
                 {/* Email Content Panel */}
                 <div className="mail-content">
-                    <EmailViewer />
+                    <EmailViewer 
+                        selectedEmail={selectedEmail}
+                        onReply={(email) => {
+                            setComposing(true);
+                            // Pre-fill compose window with reply data
+                        }}
+                        onDelete={() => selectedEmail && handleDeleteEmail(selectedEmail.id)}
+                    />
                 </div>
             </div>
             
@@ -273,12 +470,23 @@ const CategoryLabel = ({ icon, label, count }) => {
 };
 
 // Email Item Component
-const EmailItem = ({ unread, starred, important, sender, subject, snippet, time, hasAttachment, labels }) => {
+const EmailItem = ({ email, selected, onEmailClick, onStarToggle, onDelete }) => {
+    const { unread, starred, important, sender, subject, snippet, time, hasAttachment, labels } = email;
+    
     return (
-        <div className={`email-item ${unread ? 'unread' : ''}`}>
+        <div 
+            className={`email-item ${unread ? 'unread' : ''} ${selected ? 'selected' : ''}`}
+            onClick={onEmailClick}
+        >
             <div className="email-controls">
-                <input type="checkbox" />
-                <button className="star-btn">
+                <input type="checkbox" onClick={(e) => e.stopPropagation()} />
+                <button 
+                    className="star-btn"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onStarToggle();
+                    }}
+                >
                     <i className={`${starred ? 'fas' : 'far'} fa-star`}></i>
                 </button>
                 {important && (
@@ -311,18 +519,280 @@ const EmailItem = ({ unread, starred, important, sender, subject, snippet, time,
             <div className="email-meta">
                 {hasAttachment && <i className="fas fa-paperclip attachment-icon"></i>}
                 <span className="time">{time}</span>
+                <button 
+                    className="delete-btn"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onDelete();
+                    }}
+                    style={{marginLeft: '8px', opacity: 0.6}}
+                >
+                    <i className="fas fa-trash"></i>
+                </button>
             </div>
         </div>
     );
 };
 
 // Email Viewer Component
-const EmailViewer = () => {
+const EmailViewer = ({ selectedEmail, onReply, onDelete }) => {
+    if (!selectedEmail) {
+        return (
+            <div className="email-viewer">
+                <div className="viewer-placeholder">
+                    <i className="fas fa-envelope-open" style={{fontSize: '48px', color: '#dadce0', marginBottom: '16px'}}></i>
+                    <p style={{color: '#5f6368', fontSize: '16px'}}>Select an email to read</p>
+                </div>
+            </div>
+        );
+    }
+    
     return (
         <div className="email-viewer">
-            <div className="viewer-placeholder">
-                <i className="fas fa-envelope-open" style={{fontSize: '48px', color: '#dadce0', marginBottom: '16px'}}></i>
-                <p style={{color: '#5f6368', fontSize: '16px'}}>Select an email to read</p>
+            <div className="email-header-full">
+                <div className="email-actions">
+                    <button className="action-btn" title="Archive">
+                        <i className="fas fa-archive"></i>
+                    </button>
+                    <button className="action-btn" title="Report spam">
+                        <i className="fas fa-ban"></i>
+                    </button>
+                    <button className="action-btn" title="Delete" onClick={onDelete}>
+                        <i className="fas fa-trash"></i>
+                    </button>
+                    <button className="action-btn" title="Mark as unread">
+                        <i className="fas fa-envelope"></i>
+                    </button>
+                    <button className="action-btn" title="Add to tasks">
+                        <i className="fas fa-plus"></i>
+                    </button>
+                    <button className="action-btn" title="Move to">
+                        <i className="fas fa-folder"></i>
+                    </button>
+                    <button className="action-btn" title="More">
+                        <i className="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div className="email-content-full">
+                <div className="email-subject-full">
+                    <h2>{selectedEmail.subject}</h2>
+                    <div className="email-labels-full">
+                        {selectedEmail.labels && selectedEmail.labels.map((label, idx) => (
+                            <span 
+                                key={idx} 
+                                className="email-label"
+                                style={{backgroundColor: label.color}}
+                            >
+                                {label.text}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+                
+                <div className="email-meta-full">
+                    <div className="sender-info">
+                        <div className="sender-avatar">
+                            {selectedEmail.sender.split(' ').map(n => n[0]).join('').toUpperCase()}
+                        </div>
+                        <div className="sender-details">
+                            <div className="sender-name">{selectedEmail.sender}</div>
+                            <div className="sender-email">&lt;{selectedEmail.from}&gt;</div>
+                        </div>
+                    </div>
+                    <div className="email-time-full">
+                        {new Date(selectedEmail.date).toLocaleString()}
+                    </div>
+                </div>
+                
+                <div className="email-body-full">
+                    <div className="email-text">
+                        {selectedEmail.content.split('\n').map((line, idx) => (
+                            <p key={idx}>{line}</p>
+                        ))}
+                    </div>
+                </div>
+                
+                <div className="email-actions-full">
+                    <button className="reply-btn" onClick={() => onReply(selectedEmail)}>
+                        <i className="fas fa-reply"></i>
+                        Reply
+                    </button>
+                    <button className="reply-all-btn">
+                        <i className="fas fa-reply-all"></i>
+                        Reply all
+                    </button>
+                    <button className="forward-btn">
+                        <i className="fas fa-share"></i>
+                        Forward
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Notes Section Component
+const NotesSection = ({ notes, onAddNote, onDeleteNote }) => {
+    const [showAddForm, setShowAddForm] = useState(false);
+    const [newNote, setNewNote] = useState({
+        title: '',
+        content: '',
+        property: '',
+        priority: 'medium'
+    });
+    
+    const handleAddNote = () => {
+        if (newNote.title.trim() && newNote.content.trim()) {
+            onAddNote({
+                ...newNote,
+                created: new Date().toISOString()
+            });
+            setNewNote({
+                title: '',
+                content: '',
+                property: '',
+                priority: 'medium'
+            });
+            setShowAddForm(false);
+        }
+    };
+    
+    return (
+        <div className="notes-section">
+            <div className="notes-header">
+                <h3>Notes</h3>
+                <button 
+                    className="add-note-btn"
+                    onClick={() => {
+                        console.log('Add Note button clicked');
+                        setShowAddForm(true);
+                    }}
+                >
+                    <i className="fas fa-plus"></i>
+                    Add Note
+                </button>
+            </div>
+            
+            {showAddForm && (
+                <div className="add-note-form">
+                    <input
+                        type="text"
+                        placeholder="Note title..."
+                        value={newNote.title}
+                        onChange={(e) => setNewNote({...newNote, title: e.target.value})}
+                        className="note-title-input"
+                    />
+                    <textarea
+                        placeholder="Note content..."
+                        value={newNote.content}
+                        onChange={(e) => setNewNote({...newNote, content: e.target.value})}
+                        className="note-content-input"
+                        rows="3"
+                    />
+                    <div className="note-form-meta">
+                        <select 
+                            value={newNote.property}
+                            onChange={(e) => setNewNote({...newNote, property: e.target.value})}
+                            className="note-property-select"
+                        >
+                            <option value="">Select Property</option>
+                            <option value="Sunset Apartments">Sunset Apartments</option>
+                            <option value="Downtown Plaza">Downtown Plaza</option>
+                            <option value="Garden Complex">Garden Complex</option>
+                        </select>
+                        <select 
+                            value={newNote.priority}
+                            onChange={(e) => setNewNote({...newNote, priority: e.target.value})}
+                            className="note-priority-select"
+                        >
+                            <option value="low">Low Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                    </div>
+                    <div className="note-form-actions">
+                        <button 
+                            className="save-note-btn"
+                            onClick={handleAddNote}
+                        >
+                            Save Note
+                        </button>
+                        <button 
+                            className="cancel-note-btn"
+                            onClick={() => setShowAddForm(false)}
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            )}
+            
+            <div className="notes-list">
+                {notes.length === 0 ? (
+                    <div className="no-notes">
+                        <i className="fas fa-sticky-note" style={{fontSize: '48px', color: '#dadce0', marginBottom: '16px'}}></i>
+                        <p>No notes yet. Add your first note!</p>
+                    </div>
+                ) : (
+                    notes.map(note => (
+                        <NoteItem 
+                            key={note.id}
+                            note={note}
+                            onDelete={() => onDeleteNote(note.id)}
+                        />
+                    ))
+                )}
+            </div>
+        </div>
+    );
+};
+
+// Note Item Component
+const NoteItem = ({ note, onDelete }) => {
+    const getPriorityColor = (priority) => {
+        switch(priority) {
+            case 'high': return '#ef4444';
+            case 'medium': return '#f59e0b';
+            case 'low': return '#10b981';
+            default: return '#6b7280';
+        }
+    };
+    
+    return (
+        <div className="note-item">
+            <div className="note-header">
+                <h4 className="note-title">{note.title}</h4>
+                <div className="note-meta">
+                    <span 
+                        className="note-priority"
+                        style={{ color: getPriorityColor(note.priority) }}
+                    >
+                        <i className="fas fa-circle"></i>
+                        {note.priority}
+                    </span>
+                    <button 
+                        className="delete-note-btn"
+                        onClick={onDelete}
+                    >
+                        <i className="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            <div className="note-content">
+                <p>{note.content}</p>
+            </div>
+            <div className="note-footer">
+                {note.property && (
+                    <span className="note-property">
+                        <i className="fas fa-building"></i>
+                        {note.property}
+                    </span>
+                )}
+                <span className="note-date">
+                    {new Date(note.created).toLocaleDateString()}
+                </span>
             </div>
         </div>
     );
@@ -330,10 +800,10 @@ const EmailViewer = () => {
 
 // Professional Compose Window
 const ComposeWindow = ({ onClose }) => {
-    const [to, setTo] = React.useState('');
-    const [subject, setSubject] = React.useState('');
-    const [content, setContent] = React.useState('');
-    const [showCc, setShowCc] = React.useState(false);
+    const [to, setTo] = useState('');
+    const [subject, setSubject] = useState('');
+    const [content, setContent] = useState('');
+    const [showCc, setShowCc] = useState(false);
     
     return (
         <div className="compose-window">

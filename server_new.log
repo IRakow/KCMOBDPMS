@@ -1,126 +1,35 @@
-::1 - - [12/Jul/2025 03:32:19] "GET /test.html HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 03:33:06] "GET / HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/units.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/tenants.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/base.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/components.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/dashboard.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/properties-fixed.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/properties-pro.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/properties-v2.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/properties-banner-fix.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:06] "GET /src/styles/properties-complete.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/utils/stateManager.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/utils/api.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/utils/cacheEnhanced.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/utils/auth.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/stores/authStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/utils/performanceEnhanced.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/Units.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/stores/dashboardStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/patterns/ComponentFactory.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/hooks/useStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/services/propertyService.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/PropertyCardPattern.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/AddPropertyModal.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Icons.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Card.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Button.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Input.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/SearchBar.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Sidebar.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/SidebarV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/MiniCharts.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/OccupancyWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/MaintenanceWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/RevenueWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/LeasesWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/CalendarWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/FollowUpsWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/widgets/QuickNotesWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/DashboardWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/DraggableWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/WidgetSelector.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/SimpleDashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/TestDashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/Login.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/AdminPortal.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/AdminPortalV3.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/PropertiesFixed.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/components/Dashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/AdminPortalV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/Properties.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/PropertiesV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/App.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/index.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:33:07] "GET /src/pages/PropertiesPro.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:36:36] "GET / HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 03:36:36] "GET /src/styles/tenants.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:32] "GET / HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/components.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/base.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/voice-assistant.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/dashboard.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/properties-complete.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/units.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/properties-v2.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/properties-fixed.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/tenants.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/properties-banner-fix.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/styles/properties-pro.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/utils/api.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/utils/auth.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/patterns/ComponentFactory.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/utils/performanceEnhanced.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/utils/stateManager.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/stores/dashboardStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/hooks/useStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/VoiceAssistant.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Tenants.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Leases.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/stores/authStore.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Maintenance.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/utils/cacheEnhanced.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/services/propertyService.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/PropertyCardPattern.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/AddPropertyModal.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Button.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Input.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Card.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/SearchBar.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Icons.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Sidebar.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/SidebarV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/MiniCharts.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/OccupancyWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/RevenueWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/MaintenanceWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/LeasesWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/FollowUpsWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/CalendarWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/widgets/QuickNotesWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/DashboardWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/DraggableWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/WidgetSelector.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/TestDashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/SimpleDashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/components/Dashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Login.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/AdminPortal.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/AdminPortalV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Properties.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/AdminPortalV3.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/PropertiesV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/PropertiesPro.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/PropertiesFixed.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/App.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/pages/Units.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 16:39:33] "GET /src/index.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:57] "GET / HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:57] "GET /src/styles/tenants.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:57] "GET /src/styles/voice-assistant.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:58] "GET /src/components/VoiceAssistant.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:58] "GET /src/pages/Leases.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:58] "GET /src/pages/Maintenance.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 17:29:58] "GET /src/pages/AdminPortalV3.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 23:07:53] "GET /src/styles/units-world-class.css HTTP/1.1" 200 -
+OpenAI library not installed. Install with: pip install openai
+Google Generative AI library not installed. Install with: pip install google-generativeai
+ElevenLabs library not installed. Install with: pip install elevenlabs
+INFO:     Will watch for changes in these directories: ['/Users/ianrakow/Desktop/fafdsds/BDPMS MO copy/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [77877] using WatchFiles
+OpenAI library not installed. Install with: pip install openai
+Google Generative AI library not installed. Install with: pip install google-generativeai
+ElevenLabs library not installed. Install with: pip install elevenlabs
+INFO:     Started server process [77880]
+INFO:     Waiting for application startup.
+INFO:app.main:Starting up...
+INFO:app.main:Database initialized
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57545 - "OPTIONS /api/v1/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57545 - "OPTIONS /api/v1/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57560 - "OPTIONS /api/tenants HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57561 - "OPTIONS /api/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57561 - "OPTIONS /api/leases HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59809 - "OPTIONS /api/v1/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59809 - "OPTIONS /api/v1/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59820 - "OPTIONS /api/tenants HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59821 - "OPTIONS /api/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60362 - "OPTIONS /api/v1/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60571 - "OPTIONS /api/v1/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60571 - "OPTIONS /api/leases HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60611 - "OPTIONS /api/tenants HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60612 - "OPTIONS /api/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61540 - "OPTIONS /api/leases HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61540 - "OPTIONS /api/tenants HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61546 - "OPTIONS /api/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62000 - "OPTIONS /api/v1/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62000 - "OPTIONS /api/v1/properties HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62011 - "OPTIONS /api/tenants HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62012 - "OPTIONS /api/properties HTTP/1.1" 400 Bad Request

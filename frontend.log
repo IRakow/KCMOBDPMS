@@ -1,133 +1,18 @@
-::1 - - [12/Jul/2025 18:48:52] "GET / HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:44] "GET / HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/base.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/components.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/dashboard.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/properties-v2.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/properties-pro.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/properties-complete.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/properties-fixed.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/properties-banner-fix.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/units.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/tenants.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:44] "GET /src/styles/voice-assistant.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/utils/stateManager.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/utils/cacheEnhanced.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/services/apiService.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/utils/api.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/utils/performanceEnhanced.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/patterns/ComponentFactory.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/patterns/ModulePattern.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/patterns/CrudModulePattern.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/stores/authStore.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/stores/dashboardStore.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/hooks/useStore.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/services/propertyService.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/PropertyCardPattern.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/utils/auth.js HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/Properties.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/AddPropertyModal.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/VoiceAssistant.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/PropertiesPro.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/PropertiesV2.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/PropertiesFixed.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/PropertiesWorking.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/UnitsWorking.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/Units.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/Tenants.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/Leases.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/modules/LeasesCrud.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/Maintenance.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/TenantsWorking.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/Sidebar.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/Card.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/Button.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/SearchBar.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/Icons.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/widgets/MiniCharts.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/widgets/OccupancyWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/widgets/RevenueWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/widgets/LeasesWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/Input.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/SidebarV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/widgets/FollowUpsWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/DashboardWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/AdminPortal.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/DraggableWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/widgets/MaintenanceWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/SimpleDashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/Login.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/AdminPortalV3.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/WidgetSelector.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/Dashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/widgets/CalendarWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/widgets/QuickNotesWidget.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/components/TestDashboard.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/App.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/pages/AdminPortalV2.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 18:49:45] "GET /src/index.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:02:11] "GET / HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:02:11] "GET /src/patterns/CrudModulePattern.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:02:11] "GET /src/services/apiService.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:02:11] "GET /src/patterns/ModulePattern.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:02:11] "GET /src/components/PropertiesWorking.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:02:11] "GET /src/modules/LeasesCrud.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:02:11] "GET /src/components/UnitsWorking.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:02:11] "GET /src/components/TenantsWorking.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:02:21] "GET / HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:02:22] "GET / HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:23:51] "GET /demo.html HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 19:23:51] "GET /src/styles/units-world-class.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 19:23:52] "GET /src/components/UnitsWorldClass.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 19:23:52] "GET /src/components/UnitsAIPowered.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 19:23:52] "GET /src/services/apiService.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:23:52] "GET /src/patterns/CrudModulePattern.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:23:52] "GET /src/components/UnitsWorking.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:23:52] "GET /src/components/PropertiesWorking.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:24:31] "GET / HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:24:31] "GET /src/styles/tenants.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:24:31] "GET /src/styles/voice-assistant.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:24:31] "GET /src/patterns/ModulePattern.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:24:31] "GET /src/components/VoiceAssistant.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:24:31] "GET /src/pages/AdminPortalV3.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:24:31] "GET /src/modules/LeasesCrud.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 19:24:31] "GET /src/components/TenantsWorking.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 20:27:50] "GET / HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 20:27:50] "GET /src/styles/ai-components.css HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 20:27:50] "GET /src/styles/tenants.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 20:27:50] "GET /src/styles/properties-fixed.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 20:27:50] "GET /src/styles/units.css HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 20:27:51] "GET /src/components/PropertyList.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 20:27:51] "GET /src/components/AIPropertyManager.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 20:27:51] "GET /src/services/apiService.js HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 20:27:51] "GET /src/pages/AdminPortalV3.jsx HTTP/1.1" 200 -
-::1 - - [12/Jul/2025 20:27:51] "GET /src/pages/Units.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 20:27:51] "GET /src/pages/Tenants.jsx HTTP/1.1" 304 -
-::1 - - [12/Jul/2025 23:07:44] "GET /src/styles/units-world-class.css HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:45] "GET / HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:45] "GET /src/styles/main-app.css HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:45] "GET /src/styles/leasing-system.css HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:45] "GET /src/styles/financial-accounting.css HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:45] "GET /src/styles/resident-portal.css HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:45] "GET /src/styles/vendor-portal.css HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:45] "GET /src/styles/digital-applications.css HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/components/MainApp.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/FinancialDashboard.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/FinancialAccountingEngine.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/GeneralLedgerModule.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/TrialBalanceModule.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/FinancialControls.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/ResidentPortal.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/ValorPaymentModal.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/MaintenanceDashboard.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/AIMaintenanceModal.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/DigitalApplication.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/ApplicationWorkflow.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/ELeaseSigningSystem.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/VendorPortal.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/AdminVendorPanel.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/SuperAdminPanel.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/MaintenanceKanban.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/pages/AIVendorMatching.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:46] "GET /src/components/LeasingSystem.jsx HTTP/1.1" 200 -
-::1 - - [13/Jul/2025 03:22:59] "GET / HTTP/1.1" 304 -
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 1297, in <module>
+    test(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 1252, in test
+    with ServerClass(addr, HandlerClass) as httpd:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 1295, in server_bind
+    return super().server_bind()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 138, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 48] Address already in use

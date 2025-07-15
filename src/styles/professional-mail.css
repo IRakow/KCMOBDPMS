@@ -374,6 +374,11 @@
     font-weight: 500;
 }
 
+.email-item.selected {
+    background: #fce8e6;
+    border-left: 4px solid #d93025;
+}
+
 .email-controls {
     display: flex;
     align-items: center;
@@ -472,6 +477,43 @@
     font-weight: 400;
 }
 
+.delete-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #5f6368;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    background: #f1f3f4;
+    color: #d93025;
+}
+
+/* Loading and Empty States */
+.loading-emails, .no-emails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #5f6368;
+}
+
+.loading-emails i {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.no-emails i {
+    margin-bottom: 16px;
+}
+
 /* Email Viewer */
 .mail-content {
     flex: 1;
@@ -490,6 +532,131 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+/* Enhanced Email Viewer */
+.email-header-full {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 16px;
+}
+
+.email-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 50%;
+    color: #5f6368;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background: #f1f3f4;
+}
+
+.email-content-full {
+    padding: 24px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.email-subject-full h2 {
+    margin: 0 0 16px 0;
+    font-size: 22px;
+    color: #202124;
+    font-weight: 400;
+}
+
+.email-labels-full {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.email-meta-full {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.sender-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sender-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #1a73e8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.sender-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #202124;
+}
+
+.sender-email {
+    font-size: 14px;
+    color: #5f6368;
+}
+
+.email-time-full {
+    font-size: 14px;
+    color: #5f6368;
+}
+
+.email-body-full {
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.email-text p {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    color: #202124;
+}
+
+.email-actions-full {
+    display: flex;
+    gap: 8px;
+}
+
+.reply-btn, .reply-all-btn, .forward-btn {
+    padding: 8px 16px;
+    border: 1px solid #dadce0;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #5f6368;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reply-btn:hover, .reply-all-btn:hover, .forward-btn:hover {
+    background: #f8f9fa;
+    border-color: #dadce0;
 }
 
 /* Compose Window */
@@ -670,6 +837,248 @@
     margin-left: auto;
 }
 
+/* Notes Section */
+.notes-section {
+    padding: 16px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.notes-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #202124;
+    font-weight: 400;
+}
+
+.add-note-btn {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-note-btn:hover {
+    background: #1765d0;
+}
+
+.add-note-form {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #e0e0e0;
+}
+
+.note-title-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    outline: none;
+}
+
+.note-title-input:focus {
+    border-color: #1a73e8;
+}
+
+.note-content-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 80px;
+    margin-bottom: 12px;
+    outline: none;
+    font-family: inherit;
+}
+
+.note-content-input:focus {
+    border-color: #1a73e8;
+}
+
+.note-form-meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.note-property-select, .note-priority-select {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.note-property-select:focus, .note-priority-select:focus {
+    border-color: #1a73e8;
+}
+
+.note-form-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.save-note-btn {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.save-note-btn:hover {
+    background: #1765d0;
+}
+
+.cancel-note-btn {
+    background: #fff;
+    color: #5f6368;
+    border: 1px solid #dadce0;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cancel-note-btn:hover {
+    background: #f8f9fa;
+}
+
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.no-notes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #5f6368;
+    text-align: center;
+}
+
+.note-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    transition: box-shadow 0.2s;
+}
+
+.note-item:hover {
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.note-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #202124;
+}
+
+.note-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.note-priority {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.note-priority i {
+    font-size: 8px;
+}
+
+.delete-note-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #5f6368;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-note-btn:hover {
+    background: #f1f3f4;
+    color: #d93025;
+}
+
+.note-content {
+    margin-bottom: 12px;
+}
+
+.note-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #5f6368;
+    line-height: 1.4;
+}
+
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #5f6368;
+}
+
+.note-property {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.note-property i {
+    font-size: 10px;
+}
+
+.note-date {
+    font-size: 12px;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .mail-sidebar {
@@ -680,5 +1089,13 @@
     .folder-section h4,
     .compose-btn span {
         display: none;
+    }
+    
+    .note-form-meta {
+        flex-direction: column;
+    }
+    
+    .note-form-actions {
+        flex-direction: column;
     }
 }

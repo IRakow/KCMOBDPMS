@@ -504,12 +504,6 @@ const Reports = ComponentFactory.createComponent('Reports', {})((props, helpers)
   ]);
 });
 
-// Export all components
+// Export only the Properties component
 window.AppModules = window.AppModules || {};
 window.AppModules.Properties = Properties;
-window.AppModules.Units = Units;
-window.AppModules.Tenants = Tenants;
-window.AppModules.Leases = Leases;
-window.AppModules.Maintenance = Maintenance;
-window.AppModules.Accounting = Accounting;
-window.AppModules.Reports = Reports;

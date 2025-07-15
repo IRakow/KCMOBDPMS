@@ -4,6 +4,7 @@ const UnifiedMessagingHub = () => {
     const [selectedConversation, setSelectedConversation] = React.useState(null);
     const [conversations, setConversations] = React.useState([]);
     const [showCompose, setShowCompose] = React.useState(false);
+    const [showBroadcast, setShowBroadcast] = React.useState(false);
     const [loading, setLoading] = React.useState(true);
     
     React.useEffect(() => {
@@ -139,6 +140,17 @@ const UnifiedMessagingHub = () => {
                         <div className="btn-glow"></div>
                     </button>
                     
+                    <button 
+                        className="broadcast-btn-premium"
+                        onClick={() => setShowBroadcast(true)}
+                    >
+                        <div className="btn-gradient broadcast">
+                            <i className="fas fa-bullhorn"></i>
+                            <span>Broadcast</span>
+                        </div>
+                        <div className="btn-glow broadcast"></div>
+                    </button>
+                    
                     {/* Filter Pills */}
                     <div className="filter-pills">
                         {[
@@ -235,6 +247,11 @@ const UnifiedMessagingHub = () => {
             {/* Compose Modal */}
             {showCompose && (
                 <ComposeModalPremium onClose={() => setShowCompose(false)} />
+            )}
+            
+            {/* Broadcast Modal */}
+            {showBroadcast && (
+                <BroadcastModalPremium onClose={() => setShowBroadcast(false)} />
             )}
         </div>
     );
@@ -678,6 +695,420 @@ const ComposeModalPremium = ({ onClose }) => {
                         <i className="fas fa-paper-plane"></i>
                         Send Message
                     </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Premium Broadcast Modal
+const BroadcastModalPremium = ({ onClose }) => {
+    const [step, setStep] = React.useState('recipients'); // recipients, compose, preview, sending
+    const [selectedGroups, setSelectedGroups] = React.useState([]);
+    const [selectedIndividuals] = React.useState([]);
+    const [broadcastType, setBroadcastType] = React.useState('announcement');
+    const [subject, setSubject] = React.useState('');
+    const [message, setMessage] = React.useState('');
+    const [scheduleType, setScheduleType] = React.useState('now'); // now, scheduled
+    const [scheduleDate, setScheduleDate] = React.useState('');
+    const [scheduleTime, setScheduleTime] = React.useState('');
+    
+    const recipientGroups = [
+        { id: 'all-tenants', name: 'All Tenants', count: 156, icon: 'fa-users', color: '#3b82f6' },
+        { id: 'all-owners', name: 'All Owners', count: 42, icon: 'fa-building', color: '#8b5cf6' },
+        { id: 'active-leases', name: 'Active Leases', count: 134, icon: 'fa-file-contract', color: '#10b981' },
+        { id: 'upcoming-renewals', name: 'Upcoming Renewals', count: 23, icon: 'fa-calendar-check', color: '#f59e0b' },
+        { id: 'delinquent-accounts', name: 'Delinquent Accounts', count: 8, icon: 'fa-exclamation-circle', color: '#ef4444' },
+        { id: 'maintenance-updates', name: 'Maintenance Updates', count: 45, icon: 'fa-tools', color: '#6366f1' },
+        { id: 'new-residents', name: 'New Residents (30 days)', count: 12, icon: 'fa-user-plus', color: '#14b8a6' }
+    ];
+    
+    const broadcastTemplates = [
+        {
+            id: 'rent-reminder',
+            type: 'announcement',
+            icon: 'fa-dollar-sign',
+            title: 'Rent Reminder',
+            subject: 'Friendly Rent Reminder',
+            message: 'Dear Resident,\n\nThis is a friendly reminder that your rent payment is due on {dueDate}. Please ensure your payment is submitted on time to avoid any late fees.\n\nIf you have already made your payment, please disregard this message.\n\nThank you!'
+        },
+        {
+            id: 'maintenance-notice',
+            type: 'maintenance',
+            icon: 'fa-tools',
+            title: 'Maintenance Notice',
+            subject: 'Scheduled Maintenance Notice',
+            message: 'Dear Resident,\n\nWe will be performing scheduled maintenance on {maintenanceDate} from {startTime} to {endTime}.\n\nDuring this time, {serviceType} may be temporarily unavailable.\n\nWe apologize for any inconvenience and appreciate your patience.'
+        },
+        {
+            id: 'community-update',
+            type: 'announcement',
+            icon: 'fa-info-circle',
+            title: 'Community Update',
+            subject: 'Important Community Update',
+            message: 'Dear Residents,\n\n{updateContent}\n\nIf you have any questions or concerns, please don\'t hesitate to contact the management office.\n\nBest regards,\nProperty Management'
+        },
+        {
+            id: 'emergency-alert',
+            type: 'emergency',
+            icon: 'fa-exclamation-triangle',
+            title: 'Emergency Alert',
+            subject: 'URGENT: Emergency Notification',
+            message: 'ATTENTION ALL RESIDENTS:\n\n{emergencyDetails}\n\nPlease follow all safety instructions and contact emergency services if needed.\n\nFor updates, monitor your email and text messages.'
+        }
+    ];
+    
+    const toggleGroup = (groupId) => {
+        if (selectedGroups.includes(groupId)) {
+            setSelectedGroups(selectedGroups.filter(id => id !== groupId));
+        } else {
+            setSelectedGroups([...selectedGroups, groupId]);
+        }
+    };
+    
+    const getTotalRecipients = () => {
+        const groupCount = selectedGroups.reduce((total, groupId) => {
+            const group = recipientGroups.find(g => g.id === groupId);
+            return total + (group?.count || 0);
+        }, 0);
+        return groupCount + selectedIndividuals.length;
+    };
+    
+    const applyTemplate = (template) => {
+        setBroadcastType(template.type);
+        setSubject(template.subject);
+        setMessage(template.message);
+        setStep('compose');
+    };
+    
+    const sendBroadcast = async () => {
+        setStep('sending');
+        
+        try {
+            // Simulate sending
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            window.showNotification?.('success', `Broadcast sent to ${getTotalRecipients()} recipients`);
+            onClose();
+        } catch (error) {
+            console.error('Failed to send broadcast:', error);
+            window.showNotification?.('error', 'Failed to send broadcast');
+            setStep('preview');
+        }
+    };
+    
+    const renderRecipientStep = () => (
+        <>
+            <div className="modal-section">
+                <h3>Select Recipients</h3>
+                <p>Choose groups or individuals to receive this broadcast</p>
+                
+                <div className="recipient-groups-grid">
+                    {recipientGroups.map(group => (
+                        <div
+                            key={group.id}
+                            className={`recipient-group-card ${selectedGroups.includes(group.id) ? 'selected' : ''}`}
+                            onClick={() => toggleGroup(group.id)}
+                        >
+                            <div className="group-icon" style={{ backgroundColor: group.color + '20', color: group.color }}>
+                                <i className={`fas ${group.icon}`}></i>
+                            </div>
+                            <div className="group-info">
+                                <h4>{group.name}</h4>
+                                <span className="group-count">{group.count} recipients</span>
+                            </div>
+                            <div className="group-checkbox">
+                                <i className={`fas fa-${selectedGroups.includes(group.id) ? 'check-circle' : 'circle'}`}></i>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                
+                <div className="individual-recipients">
+                    <button className="add-individuals-btn">
+                        <i className="fas fa-user-plus"></i>
+                        Add Individual Recipients
+                    </button>
+                </div>
+            </div>
+            
+            <div className="modal-section">
+                <h3>Or Use a Template</h3>
+                <div className="template-grid">
+                    {broadcastTemplates.map(template => (
+                        <div
+                            key={template.id}
+                            className="template-card"
+                            onClick={() => applyTemplate(template)}
+                        >
+                            <i className={`fas ${template.icon} template-icon`}></i>
+                            <span>{template.title}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
+    );
+    
+    const renderComposeStep = () => (
+        <div className="modal-section">
+            <div className="broadcast-type-selector">
+                <label>Broadcast Type:</label>
+                <div className="type-options">
+                    <button
+                        className={`type-option ${broadcastType === 'announcement' ? 'active' : ''}`}
+                        onClick={() => setBroadcastType('announcement')}
+                    >
+                        <i className="fas fa-bullhorn"></i>
+                        Announcement
+                    </button>
+                    <button
+                        className={`type-option ${broadcastType === 'maintenance' ? 'active' : ''}`}
+                        onClick={() => setBroadcastType('maintenance')}
+                    >
+                        <i className="fas fa-tools"></i>
+                        Maintenance
+                    </button>
+                    <button
+                        className={`type-option ${broadcastType === 'emergency' ? 'active' : ''}`}
+                        onClick={() => setBroadcastType('emergency')}
+                    >
+                        <i className="fas fa-exclamation-triangle"></i>
+                        Emergency
+                    </button>
+                </div>
+            </div>
+            
+            <div className="form-group">
+                <label>Subject:</label>
+                <input
+                    type="text"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    placeholder="Enter broadcast subject..."
+                    className="form-input"
+                />
+            </div>
+            
+            <div className="form-group">
+                <label>Message:</label>
+                <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Type your broadcast message..."
+                    className="form-textarea"
+                    rows="8"
+                />
+                <div className="message-toolbar">
+                    <button className="toolbar-btn">
+                        <i className="fas fa-bold"></i>
+                    </button>
+                    <button className="toolbar-btn">
+                        <i className="fas fa-italic"></i>
+                    </button>
+                    <button className="toolbar-btn">
+                        <i className="fas fa-link"></i>
+                    </button>
+                    <button className="toolbar-btn">
+                        <i className="fas fa-paperclip"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div className="form-group">
+                <label>Schedule:</label>
+                <div className="schedule-options">
+                    <label className="radio-option">
+                        <input
+                            type="radio"
+                            name="schedule"
+                            value="now"
+                            checked={scheduleType === 'now'}
+                            onChange={(e) => setScheduleType(e.target.value)}
+                        />
+                        <span>Send immediately</span>
+                    </label>
+                    <label className="radio-option">
+                        <input
+                            type="radio"
+                            name="schedule"
+                            value="scheduled"
+                            checked={scheduleType === 'scheduled'}
+                            onChange={(e) => setScheduleType(e.target.value)}
+                        />
+                        <span>Schedule for later</span>
+                    </label>
+                </div>
+                
+                {scheduleType === 'scheduled' && (
+                    <div className="schedule-inputs">
+                        <input
+                            type="date"
+                            value={scheduleDate}
+                            onChange={(e) => setScheduleDate(e.target.value)}
+                            className="form-input"
+                        />
+                        <input
+                            type="time"
+                            value={scheduleTime}
+                            onChange={(e) => setScheduleTime(e.target.value)}
+                            className="form-input"
+                        />
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+    
+    const renderPreviewStep = () => (
+        <div className="modal-section broadcast-preview">
+            <h3>Broadcast Preview</h3>
+            
+            <div className="preview-card">
+                <div className="preview-header">
+                    <div className="preview-type" style={{
+                        backgroundColor: broadcastType === 'emergency' ? '#fee2e2' : 
+                                       broadcastType === 'maintenance' ? '#fef3c7' : '#dbeafe',
+                        color: broadcastType === 'emergency' ? '#991b1b' : 
+                               broadcastType === 'maintenance' ? '#92400e' : '#1e40af'
+                    }}>
+                        <i className={`fas fa-${broadcastType === 'emergency' ? 'exclamation-triangle' : 
+                                             broadcastType === 'maintenance' ? 'tools' : 'bullhorn'}`}></i>
+                        {broadcastType.charAt(0).toUpperCase() + broadcastType.slice(1)}
+                    </div>
+                    <span className="preview-time">
+                        {scheduleType === 'now' ? 'Sending immediately' : `Scheduled: ${scheduleDate} at ${scheduleTime}`}
+                    </span>
+                </div>
+                
+                <div className="preview-subject">
+                    <strong>Subject:</strong> {subject}
+                </div>
+                
+                <div className="preview-message">
+                    {message.split('\n').map((line, i) => (
+                        <p key={i}>{line || <br />}</p>
+                    ))}
+                </div>
+                
+                <div className="preview-footer">
+                    <div className="recipient-summary">
+                        <i className="fas fa-users"></i>
+                        <span>{getTotalRecipients()} recipients</span>
+                    </div>
+                    <div className="selected-groups">
+                        {selectedGroups.map(groupId => {
+                            const group = recipientGroups.find(g => g.id === groupId);
+                            return (
+                                <span key={groupId} className="group-tag">
+                                    {group?.name}
+                                </span>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+    
+    const renderSendingStep = () => (
+        <div className="modal-section sending-broadcast">
+            <div className="sending-animation">
+                <i className="fas fa-paper-plane fa-spin"></i>
+            </div>
+            <h3>Sending Broadcast...</h3>
+            <p>Delivering to {getTotalRecipients()} recipients</p>
+            <div className="progress-bar">
+                <div className="progress-fill"></div>
+            </div>
+        </div>
+    );
+    
+    return (
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="broadcast-modal-premium" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-header">
+                    <h2>
+                        <i className="fas fa-bullhorn"></i>
+                        Broadcast Message
+                    </h2>
+                    <button className="close-btn" onClick={onClose}>
+                        <i className="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                {/* Progress Steps */}
+                <div className="broadcast-steps">
+                    <div className={`step ${step === 'recipients' ? 'active' : ''} ${['compose', 'preview', 'sending'].includes(step) ? 'completed' : ''}`}>
+                        <div className="step-number">1</div>
+                        <span>Recipients</span>
+                    </div>
+                    <div className="step-line"></div>
+                    <div className={`step ${step === 'compose' ? 'active' : ''} ${['preview', 'sending'].includes(step) ? 'completed' : ''}`}>
+                        <div className="step-number">2</div>
+                        <span>Compose</span>
+                    </div>
+                    <div className="step-line"></div>
+                    <div className={`step ${step === 'preview' ? 'active' : ''} ${step === 'sending' ? 'completed' : ''}`}>
+                        <div className="step-number">3</div>
+                        <span>Review</span>
+                    </div>
+                </div>
+                
+                <div className="modal-body">
+                    {step === 'recipients' && renderRecipientStep()}
+                    {step === 'compose' && renderComposeStep()}
+                    {step === 'preview' && renderPreviewStep()}
+                    {step === 'sending' && renderSendingStep()}
+                </div>
+                
+                <div className="modal-footer">
+                    {step !== 'sending' && (
+                        <>
+                            <button className="btn-secondary" onClick={onClose}>Cancel</button>
+                            {step === 'recipients' && (
+                                <button 
+                                    className="btn-primary"
+                                    onClick={() => setStep('compose')}
+                                    disabled={selectedGroups.length === 0 && selectedIndividuals.length === 0}
+                                >
+                                    <i className="fas fa-arrow-right"></i>
+                                    Continue
+                                </button>
+                            )}
+                            {step === 'compose' && (
+                                <>
+                                    <button className="btn-secondary" onClick={() => setStep('recipients')}>
+                                        <i className="fas fa-arrow-left"></i>
+                                        Back
+                                    </button>
+                                    <button 
+                                        className="btn-primary"
+                                        onClick={() => setStep('preview')}
+                                        disabled={!subject || !message}
+                                    >
+                                        <i className="fas fa-eye"></i>
+                                        Preview
+                                    </button>
+                                </>
+                            )}
+                            {step === 'preview' && (
+                                <>
+                                    <button className="btn-secondary" onClick={() => setStep('compose')}>
+                                        <i className="fas fa-arrow-left"></i>
+                                        Back
+                                    </button>
+                                    <button 
+                                        className="btn-primary send-broadcast"
+                                        onClick={sendBroadcast}
+                                    >
+                                        <i className="fas fa-paper-plane"></i>
+                                        Send Broadcast
+                                    </button>
+                                </>
+                            )}
+                        </>
+                    )}
                 </div>
             </div>
         </div>

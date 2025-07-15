@@ -2,8 +2,7 @@
 Messaging models for unified communication hub
 """
 from sqlalchemy import Column, String, Integer, Text, Boolean, DateTime, ForeignKey, JSON, Enum as SQLAlchemyEnum
-from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship as db_relationship
 from datetime import datetime
 import uuid
 import enum
@@ -42,34 +41,34 @@ class Conversation(BaseModel):
     """Conversation between participants"""
     __tablename__ = "conversations"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     type = Column(SQLAlchemyEnum(MessageType), default=MessageType.DIRECT)
     status = Column(SQLAlchemyEnum(ConversationStatus), default=ConversationStatus.ACTIVE)
     
     # Participants
-    created_by_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
-    created_by = relationship("User", foreign_keys=[created_by_id])
+    created_by_id = Column(String(36), ForeignKey("users.id"), nullable=False)
+    created_by = db_relationship("User", foreign_keys=[created_by_id])
     
     # Subject/Topic
     subject = Column(String(255))
     
     # Related entities
-    property_id = Column(UUID(as_uuid=True), ForeignKey("properties.id"))
-    property = relationship("Property")
+    property_id = Column(String(36), ForeignKey("properties.id"))
+    property = db_relationship("Property")
     
-    unit_id = Column(UUID(as_uuid=True), ForeignKey("units.id"))
-    unit = relationship("Unit")
+    unit_id = Column(String(36), ForeignKey("units.id"))
+    unit = db_relationship("Unit")
     
-    tenant_id = Column(UUID(as_uuid=True), ForeignKey("tenants.id"))
-    tenant = relationship("Tenant")
+    tenant_id = Column(String(36), ForeignKey("tenants.id"))
+    tenant = db_relationship("Tenant")
     
-    maintenance_request_id = Column(UUID(as_uuid=True), ForeignKey("maintenance_requests.id"))
-    maintenance_request = relationship("MaintenanceRequest")
+    maintenance_request_id = Column(String(36), ForeignKey("maintenance_requests.id"))
+    maintenance_request = db_relationship("MaintenanceRequest")
     
     # Metadata
     is_urgent = Column(Boolean, default=False)
     tags = Column(JSON, default=list)
-    metadata = Column(JSON, default=dict)
+    extra_data = Column(JSON, default=dict)
     
     # Timestamps
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
@@ -77,17 +76,15 @@ class Conversation(BaseModel):
     last_message_at = Column(DateTime, default=datetime.utcnow)
     
     # Relationships
-    messages = relationship("Message", back_populates="conversation", cascade="all, delete-orphan")
-    participants = relationship("ConversationParticipant", back_populates="conversation", cascade="all, delete-orphan")
+    messages = db_relationship("Message", back_populates="conversation", cascade="all, delete-orphan")
+    participants = db_relationship("ConversationParticipant", back_populates="conversation", cascade="all, delete-orphan")
     
-    @property
-    def unread_count(self):
+    def get_unread_count(self):
         """Get count of unread messages for current user"""
         # This would be calculated based on the current user context
         return sum(1 for msg in self.messages if not msg.is_read)
     
-    @property
-    def participant_count(self):
+    def get_participant_count(self):
         """Get number of participants"""
         return len(self.participants)
     
@@ -103,13 +100,13 @@ class ConversationParticipant(BaseModel):
     """Participants in a conversation"""
     __tablename__ = "conversation_participants"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    conversation_id = Column(UUID(as_uuid=True), ForeignKey("conversations.id"), nullable=False)
-    conversation = relationship("Conversation", back_populates="participants")
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    conversation_id = Column(String(36), ForeignKey("conversations.id"), nullable=False)
+    conversation = db_relationship("Conversation", back_populates="participants")
     
     # Participant info
-    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"))
-    user = relationship("User")
+    user_id = Column(String(36), ForeignKey("users.id"))
+    user = db_relationship("User")
     
     participant_type = Column(SQLAlchemyEnum(ParticipantType), nullable=False)
     participant_name = Column(String(255), nullable=False)
@@ -137,13 +134,13 @@ class Message(BaseModel):
     """Individual messages in conversations"""
     __tablename__ = "messages"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    conversation_id = Column(UUID(as_uuid=True), ForeignKey("conversations.id"), nullable=False)
-    conversation = relationship("Conversation", back_populates="messages")
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    conversation_id = Column(String(36), ForeignKey("conversations.id"), nullable=False)
+    conversation = db_relationship("Conversation", back_populates="messages")
     
     # Sender
-    sender_id = Column(UUID(as_uuid=True), ForeignKey("users.id"))
-    sender = relationship("User")
+    sender_id = Column(String(36), ForeignKey("users.id"))
+    sender = db_relationship("User")
     sender_name = Column(String(255), nullable=False)
     sender_type = Column(SQLAlchemyEnum(ParticipantType))
     
@@ -152,7 +149,7 @@ class Message(BaseModel):
     content_type = Column(String(50), default="text")  # text, image, file, system
     
     # Metadata
-    metadata = Column(JSON, default=dict)  # For storing file info, image URLs, etc.
+    extra_data = Column(JSON, default=dict)  # For storing file info, image URLs, etc.
     
     # Status
     is_read = Column(Boolean, default=False)
@@ -165,7 +162,7 @@ class Message(BaseModel):
     read_at = Column(DateTime)
     
     # Attachments relationship
-    attachments = relationship("MessageAttachment", back_populates="message", cascade="all, delete-orphan")
+    attachments = db_relationship("MessageAttachment", back_populates="message", cascade="all, delete-orphan")
     
     def to_dict(self):
         """Convert to dictionary"""
@@ -191,9 +188,9 @@ class MessageAttachment(BaseModel):
     """Attachments for messages"""
     __tablename__ = "message_attachments"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    message_id = Column(UUID(as_uuid=True), ForeignKey("messages.id"), nullable=False)
-    message = relationship("Message", back_populates="attachments")
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    message_id = Column(String(36), ForeignKey("messages.id"), nullable=False)
+    message = db_relationship("Message", back_populates="attachments")
     
     # File info
     file_name = Column(String(255), nullable=False)
@@ -204,7 +201,7 @@ class MessageAttachment(BaseModel):
     # Metadata
     mime_type = Column(String(100))
     thumbnail_url = Column(String(500))
-    metadata = Column(JSON, default=dict)
+    extra_data = Column(JSON, default=dict)
     
     # Timestamps
     uploaded_at = Column(DateTime, default=datetime.utcnow, nullable=False)
@@ -227,7 +224,7 @@ class MessageTemplate(BaseModel):
     """Reusable message templates"""
     __tablename__ = "message_templates"
     
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     
     # Template info
     name = Column(String(255), nullable=False)
@@ -243,8 +240,8 @@ class MessageTemplate(BaseModel):
     last_used_at = Column(DateTime)
     
     # Ownership
-    created_by_id = Column(UUID(as_uuid=True), ForeignKey("users.id"))
-    created_by = relationship("User")
+    created_by_id = Column(String(36), ForeignKey("users.id"))
+    created_by = db_relationship("User")
     is_public = Column(Boolean, default=False)
     
     # Timestamps

@@ -21,4 +21,3 @@ api_router.include_router(messaging_router, tags=["messaging"])
 api_router.include_router(calendar_router, tags=["calendar"])
 
 # Add more routers as they are created
-# api_router.include_router(tenants_router, prefix="/tenants", tags=["tenants"])

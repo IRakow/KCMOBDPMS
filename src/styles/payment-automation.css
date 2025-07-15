@@ -1,0 +1,904 @@
+/* Payment Automation Engine Styles */
+
+.payment-automation-engine {
+    min-height: 100vh;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation */
+.automation-nav {
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-items {
+    display: flex;
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-item {
+    background: transparent;
+    border: none;
+    padding: 16px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-item:hover {
+    color: #3b82f6;
+    background: #f8fafc;
+}
+
+.nav-item.active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+    background: #f8fafc;
+}
+
+.nav-item i {
+    font-size: 16px;
+}
+
+/* Content Area */
+.automation-content {
+    flex: 1;
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Loading State */
+.loading-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #64748b;
+}
+
+.loading-state i {
+    font-size: 48px;
+    color: #3b82f6;
+    margin-bottom: 16px;
+}
+
+/* Dashboard View */
+.payment-automation-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.metric-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.2s ease;
+}
+
+.metric-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.metric-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+.metric-card.revenue .metric-icon {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.metric-card.collection-rate .metric-icon {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.metric-card.automation .metric-icon {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.metric-card.processing-time .metric-icon {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.metric-content h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 4px 0;
+}
+
+.metric-content p {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0 0 8px 0;
+}
+
+.metric-change {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.metric-change.positive {
+    color: #059669;
+    background: #d1fae5;
+}
+
+.metric-change.negative {
+    color: #dc2626;
+    background: #fee2e2;
+}
+
+/* Payment Status Section */
+.payment-status-section {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.payment-status-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 24px 0;
+}
+
+.status-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.status-card {
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid;
+    transition: all 0.2s ease;
+}
+
+.status-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.status-card.paid {
+    background: #f0fdf4;
+    border-color: #10b981;
+}
+
+.status-card.pending {
+    background: #fef3c7;
+    border-color: #f59e0b;
+}
+
+.status-card.overdue {
+    background: #fef2f2;
+    border-color: #ef4444;
+}
+
+.status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.status-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    margin: 0;
+}
+
+.status-header .count {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.status-amount {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* AI Insights Section */
+.ai-insights-section {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.ai-insights-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ai-insights-section h2 i {
+    color: #8b5cf6;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.insight-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s ease;
+}
+
+.insight-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.insight-header i {
+    font-size: 18px;
+}
+
+.insight-card.prediction .insight-header i {
+    color: #10b981;
+}
+
+.insight-card.risk .insight-header i {
+    color: #ef4444;
+}
+
+.insight-card.optimization .insight-header i {
+    color: #f59e0b;
+}
+
+.insight-header h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+}
+
+.insight-card p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+}
+
+.insight-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-insight {
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid #3b82f6;
+    background: #3b82f6;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-insight:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Automated Collections View */
+.automated-collections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.collections-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.collections-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.collection-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: white;
+    color: #374151;
+    border-color: #d1d5db;
+}
+
+.btn-secondary:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+/* Collection Timeline */
+.collection-timeline {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.collection-timeline h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 24px 0;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -37px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 3px solid #e2e8f0;
+    background: white;
+}
+
+.timeline-item.completed .timeline-marker {
+    border-color: #10b981;
+    background: #10b981;
+}
+
+.timeline-item.active .timeline-marker {
+    border-color: #3b82f6;
+    background: #3b82f6;
+}
+
+.timeline-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 4px 0;
+}
+
+.timeline-content p {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0 0 8px 0;
+}
+
+.timeline-result {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: #f0fdf4;
+    color: #059669;
+}
+
+/* Tenant Payments Table */
+.tenant-payments-list {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.tenant-payments-list h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 24px 0;
+}
+
+.payments-table {
+    overflow-x: auto;
+}
+
+.payments-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payments-table th,
+.payments-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.payments-table th {
+    background: #f8fafc;
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.payment-row:hover {
+    background: #f8fafc;
+}
+
+.tenant-info strong {
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.tenant-info small {
+    font-size: 12px;
+    color: #64748b;
+    display: block;
+}
+
+.amount-info strong {
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.late-fee {
+    font-size: 12px;
+    color: #ef4444;
+    display: block;
+    font-weight: 500;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-badge.paid {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.status-badge.pending {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.status-badge.overdue {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.automation-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    background: #e0e7ff;
+    color: #3730a3;
+    margin-left: 8px;
+}
+
+.payment-method {
+    font-size: 14px;
+    color: #374151;
+}
+
+.autopay-enabled {
+    font-size: 10px;
+    color: #059669;
+    display: block;
+    font-weight: 500;
+}
+
+.payment-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.btn-action {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #d1d5db;
+    background: white;
+    color: #6b7280;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-action:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+    color: #374151;
+}
+
+/* Late Fee Management */
+.late-fee-management {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.late-fee-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.late-fee-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.late-fee-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ef4444;
+    display: block;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Late Fee Rules */
+.late-fee-rules {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.late-fee-rules h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 24px 0;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.rule-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.rule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.rule-header h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+}
+
+.rule-status {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.rule-status.enabled {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.rule-content p {
+    font-size: 14px;
+    color: #1e293b;
+    margin: 0 0 4px 0;
+}
+
+.rule-content small {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Overdue Accounts */
+.overdue-accounts {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.overdue-accounts h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 24px 0;
+}
+
+.overdue-account-card {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 24px;
+    align-items: center;
+}
+
+.tenant-details h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 4px 0;
+}
+
+.tenant-details p {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+}
+
+.overdue-details {
+    text-align: center;
+}
+
+.days-late {
+    font-size: 12px;
+    font-weight: 600;
+    color: #dc2626;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.amount-due {
+    font-size: 18px;
+    font-weight: 700;
+    color: #dc2626;
+}
+
+.late-fee-breakdown {
+    text-align: right;
+}
+
+.fee-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.fee-item.total {
+    font-weight: 600;
+    color: #1e293b;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+.account-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #6b7280;
+    border-color: #d1d5db;
+}
+
+.btn-outline:hover {
+    background: #f9fafb;
+    color: #374151;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .automation-content {
+        padding: 20px;
+    }
+
+    .nav-items {
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
+    .nav-item {
+        white-space: nowrap;
+        min-width: max-content;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .status-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .collections-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .collection-controls {
+        justify-content: center;
+    }
+
+    .late-fee-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .overdue-account-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .late-fee-breakdown {
+        text-align: center;
+    }
+
+    .payments-table {
+        font-size: 14px;
+    }
+}

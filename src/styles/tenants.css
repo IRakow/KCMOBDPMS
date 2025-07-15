@@ -4,141 +4,80 @@
     background: #f8f9fa;
 }
 
-/* COMPLETELY NEW INSIGHT CARDS DESIGN */
+/* Insight cards row */
 .tenants-page .insights-row {
-    display: flex !important;
-    gap: 20px !important;
-    padding: 30px !important;
-    background: #1a1a2e !important;
-    border-bottom: none !important;
-    min-height: 180px !important;
-    position: relative !important;
-    overflow: hidden !important;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 20px;
 }
 
-.tenants-page .insights-row::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.3), transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(255, 119, 48, 0.3), transparent 50%) !important;
-    z-index: 1 !important;
-}
 
 .tenants-page .insight-card {
-    flex: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 30px 20px !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(20px) !important;
-    border-radius: 20px !important;
-    border: 2px solid rgba(255, 255, 255, 0.1) !important;
-    position: relative !important;
-    z-index: 2 !important;
-    transition: all 0.3s ease !important;
-    min-height: 120px !important;
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s ease;
 }
 
 .tenants-page .insight-card:hover {
-    transform: translateY(-10px) scale(1.05) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
 }
 
-.tenants-page .insight-card.warning {
-    background: linear-gradient(135deg, #ff6b6b, #feca57) !important;
-    border: none !important;
-    color: white !important;
-}
-
-.tenants-page .insight-card.alert {
-    background: linear-gradient(135deg, #ee5a6f, #f368e0) !important;
-    border: none !important;
-    color: white !important;
-}
-
-.tenants-page .insight-card.info {
-    background: linear-gradient(135deg, #667eea, #764ba2) !important;
-    border: none !important;
-    color: white !important;
-}
 
 .tenants-page .insight-icon {
-    width: 80px !important;
-    height: 80px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 36px !important;
-    margin-bottom: 20px !important;
-    background: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(10px) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
-    color: white !important;
+    width: 48px;
+    height: 48px;
+    background: #f1f3f5;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #495057;
 }
 
-.tenants-page .insight-icon i {
-    display: block !important;
-    line-height: 1 !important;
-    color: white !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+.tenants-page .insight-card:nth-child(1) .insight-icon {
+    background: #e7f5ff;
+    color: #1c7ed6;
+}
+
+.tenants-page .insight-card:nth-child(2) .insight-icon {
+    background: #d3f9d8;
+    color: #37b24d;
+}
+
+.tenants-page .insight-card:nth-child(3) .insight-icon {
+    background: #fff3bf;
+    color: #f59f00;
 }
 
 .tenants-page .insight-content {
-    flex: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    color: white !important;
+    flex: 1;
 }
 
 .tenants-page .insight-content h4 {
-    font-size: 24px !important;
-    font-weight: 700 !important;
-    color: white !important;
-    margin: 0 0 10px 0 !important;
-    line-height: 1.2 !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0 0 4px 0;
+    font-weight: 500;
 }
 
 .tenants-page .insight-content p {
-    font-size: 16px !important;
-    color: rgba(255, 255, 255, 0.9) !important;
-    margin: 0 !important;
-    line-height: 1.4 !important;
+    font-size: 28px;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
 }
 
-.tenants-page .insight-action {
-    margin-top: 20px !important;
-    padding: 12px 30px !important;
-    background: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(10px) !important;
-    border: 2px solid rgba(255, 255, 255, 0.3) !important;
-    border-radius: 30px !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    color: white !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-}
-
-.tenants-page .insight-action:hover {
-    transform: translateY(-3px) !important;
-    background: rgba(255, 255, 255, 0.3) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-}
 
 /* Page Header */
 .page-header {

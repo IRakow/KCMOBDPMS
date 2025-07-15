@@ -1,7 +1,7 @@
 /* Units Page Styles */
 .units-page {
     min-height: 100vh;
-    background: #f8f9fa;
+    background: var(--color-surface-alt);
 }
 
 /* Insights Bar */
@@ -74,13 +74,13 @@
 .insight-content h4 {
     font-size: 16px;
     font-weight: 600;
-    color: white;
+    color: var(--color-text-primary);
     margin: 0 0 4px 0;
 }
 
 .insight-content p {
     font-size: 14px;
-    color: white;
+    color: var(--color-text-secondary);
     margin: 0;
 }
 

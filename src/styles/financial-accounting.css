@@ -11,6 +11,68 @@
     overflow-x: auto;
 }
 
+
+.control-group-horizontal {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex: 1 !important;
+    border: 1px solid blue !important; /* DEBUG */
+}
+
+.control-label {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.control-select {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+    min-width: 120px;
+}
+
+.control-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    outline: none;
+}
+
+.basis-toggle-horizontal {
+    display: flex;
+    background: #f3f4f6;
+    border-radius: 6px;
+    padding: 2px;
+    gap: 0;
+}
+
+.basis-btn-horizontal {
+    padding: 6px 12px;
+    border: none;
+    background: transparent;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.basis-btn-horizontal.active {
+    background: white;
+    color: #1f2937;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .financial-controls {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
@@ -20,6 +82,26 @@
     top: 0;
     z-index: 100;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Override for horizontal layout - force horizontal display */
+.financial-controls-horizontal,
+.financial-accounting-engine .financial-controls-horizontal {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 16px 30px !important;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-height: 60px;
+    border: 2px solid red !important; /* DEBUG */
 }
 
 .financial-controls-grid {
@@ -220,10 +302,10 @@
    ============================================================================= */
 
 .financial-module-content {
-    padding: 30px;
+    padding: 20px 30px;
     max-width: 1400px;
     margin: 0 auto;
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 160px);
 }
 
 /* =============================================================================
@@ -1434,6 +1516,140 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 4px;
     }
+}
+
+/* =============================================================================
+   PAYMENT PROCESSING MODULE
+   ============================================================================= */
+
+.payment-processing-module {
+    padding: 24px;
+}
+
+.payment-processing-module h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--color-text);
+}
+
+.payment-summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.payment-summary-cards .summary-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.2s;
+}
+
+.payment-summary-cards .summary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.payment-summary-cards .summary-card h4 {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.payment-summary-cards .summary-card .amount {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.payment-summary-cards .summary-card .count {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.payment-summary-cards .summary-card.warning .count {
+    color: var(--color-warning);
+}
+
+.payment-summary-cards .summary-card.danger .count {
+    color: var(--color-danger);
+}
+
+.recent-payments {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.recent-payments h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.payments-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payments-table th {
+    text-align: left;
+    padding: 12px 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.payments-table td {
+    padding: 12px 8px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.payments-table tbody tr:hover {
+    background: var(--color-surface-hover);
+}
+
+.payments-table .status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.payments-table .status-badge.paid {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-success);
+}
+
+.payments-table .status-badge.pending {
+    background: rgba(251, 191, 36, 0.1);
+    color: var(--color-warning);
+}
+
+.payments-table .status-badge.failed {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-danger);
+}
+
+.payment-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.payment-actions .btn {
+    padding: 10px 20px;
 }
 
 /* =============================================================================
