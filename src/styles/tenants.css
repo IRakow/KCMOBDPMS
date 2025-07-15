@@ -26,7 +26,17 @@
     min-width: 300px;
     flex-shrink: 0;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.insight-card::before,
+.insight-card::after {
+    display: none;
+}
+
+.insight-card * {
+    box-sizing: border-box;
 }
 
 .insight-card.warning {
@@ -55,11 +65,26 @@
     flex-shrink: 0;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
+}
+
+.insight-icon::before,
+.insight-icon::after {
+    display: none !important;
 }
 
 .insight-icon i {
     display: block;
     line-height: 1;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.insight-icon i::before,
+.insight-icon i::after {
+    display: none !important;
 }
 
 .insight-icon.warning {
