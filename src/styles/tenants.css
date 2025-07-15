@@ -42,16 +42,19 @@
 .insight-card.warning {
     border-left: 4px solid #ffc107;
     background: #fff3cd;
+    color: #856404;
 }
 
 .insight-card.alert {
     border-left: 4px solid #dc3545;
     background: #f8d7da;
+    color: #721c24;
 }
 
 .insight-card.info {
     border-left: 4px solid #17a2b8;
     background: #d1ecf1;
+    color: #0c5460;
 }
 
 .insight-icon {
@@ -110,7 +113,7 @@
 .insight-content h4 {
     font-size: 16px;
     font-weight: 600;
-    color: #212529;
+    color: inherit;
     margin: 0 0 4px 0;
     white-space: nowrap;
     overflow: hidden;
@@ -119,7 +122,8 @@
 
 .insight-content p {
     font-size: 14px;
-    color: #6c757d;
+    color: inherit;
+    opacity: 0.8;
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
@@ -137,10 +141,12 @@
     transition: all 0.2s;
     white-space: nowrap;
     flex-shrink: 0;
+    color: inherit;
 }
 
 .insight-action:hover {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.1);
+    color: inherit;
 }
 
 /* Page Header */
