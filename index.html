@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/src/styles/properties-fixed.css">
     <link rel="stylesheet" href="/src/styles/properties-banner-fix.css">
     <link rel="stylesheet" href="/src/styles/units.css">
+    <link rel="stylesheet" href="/src/styles/units-world-class.css">
+    <link rel="stylesheet" href="/src/styles/world-class-reporting.css">
     <link rel="stylesheet" href="/src/styles/tenants.css">
     <link rel="stylesheet" href="/src/styles/ai-components.css">
     <link rel="stylesheet" href="/src/styles/property-management.css">
@@ -21,7 +23,27 @@
     <link rel="stylesheet" href="/src/styles/messaging-premium.css">
     <link rel="stylesheet" href="/src/styles/professional-mail.css">
     <link rel="stylesheet" href="/src/styles/ai-assistant-float.css">
+    <link rel="stylesheet" href="/src/styles/ai-dashboard.css">
     <link rel="stylesheet" href="/src/styles/quantum-calendar.css">
+    <link rel="stylesheet" href="/src/styles/simple-calendar.css">
+    <link rel="stylesheet" href="/src/styles/financial-accounting.css">
+    <link rel="stylesheet" href="/src/styles/maintenance-ecosystem.css">
+    <link rel="stylesheet" href="/src/styles/maintenance-ecosystem-pro.css">
+    <link rel="stylesheet" href="/src/styles/maintenance-command.css">
+    <link rel="stylesheet" href="/src/styles/style-fixes.css">
+    <link rel="stylesheet" href="/src/styles/vendor-management.css">
+    <link rel="stylesheet" href="/src/styles/property-switcher.css">
+    <link rel="stylesheet" href="/src/styles/maintenance-photo-analyzer.css">
+    <link rel="stylesheet" href="/src/styles/maintenance-voice-assistant.css">
+    <link rel="stylesheet" href="/src/styles/tenant-maintenance-chat.css">
+    <link rel="stylesheet" href="/src/styles/silence-mode-indicator.css">
+    <link rel="stylesheet" href="/src/styles/lead-management.css">
+    <link rel="stylesheet" href="/src/styles/owner-portal.css">
+    <link rel="stylesheet" href="/src/styles/maintenance-request-modal.css">
+    <link rel="stylesheet" href="/src/styles/payment-automation.css">
+    <link rel="stylesheet" href="/src/styles/valor-payment-modal.css">
+    <link rel="stylesheet" href="/src/styles/reports-center.css">
+    <link rel="stylesheet" href="/src/styles/gmail-clone.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -42,6 +64,12 @@
     <script type="text/babel" src="/src/hooks/useStore.js"></script>
     <script type="text/babel" src="/src/services/apiService.js"></script>
     <script type="text/babel" src="/src/services/propertyService.js"></script>
+    <script type="text/babel" src="/src/services/GeminiVisionService.js"></script>
+    <script type="text/babel" src="/src/services/ElevenLabsVoiceService.js"></script>
+    <script type="text/babel" src="/src/services/ValorPayTechService.js"></script>
+    <script type="text/babel" src="/src/services/ReportExportService.js"></script>
+    <script type="text/babel" src="/src/services/ReportDataService.js"></script>
+    <script type="text/babel" src="/src/components/PaymentAutomationEngine.jsx"></script>
     <script type="text/babel" src="/src/components/PropertyCardPattern.jsx"></script>
     <script type="text/babel" src="/src/components/PropertyList.jsx"></script>
     <script type="text/babel" src="/src/components/AddPropertyModal.jsx"></script>
@@ -70,19 +98,22 @@
     <script type="text/babel" src="/src/pages/Login.jsx"></script>
     <script type="text/babel" src="/src/pages/AdminPortal.jsx"></script>
     <script type="text/babel" src="/src/pages/AdminPortalV2.jsx"></script>
-    <script type="text/babel" src="/src/pages/AdminPortalV3.jsx"></script>
     <script type="text/babel" src="/src/pages/Properties.jsx"></script>
     <script type="text/babel" src="/src/pages/PropertiesV2.jsx"></script>
     <script type="text/babel" src="/src/pages/PropertiesPro.jsx"></script>
     <script type="text/babel" src="/src/pages/PropertiesFixed.jsx"></script>
     <script type="text/babel" src="/src/pages/Units.jsx"></script>
+    <script type="text/babel" src="/src/pages/UnitsWorldClass.jsx"></script>
+    <script type="text/babel" src="/src/pages/WorldClassReporting.jsx"></script>
+    <script type="text/babel" src="/src/pages/Leases.jsx"></script>
     <script type="text/babel" src="/src/pages/Tenants.jsx"></script>
+    <script type="text/babel" src="/src/pages/FinancialAccountingEngine.jsx"></script>
+    <script type="text/babel" src="/src/pages/AdminPortalV3.jsx"></script>
     <script type="text/babel" src="/src/components/PropertyManagementApp.jsx"></script>
     <script type="text/babel" src="/src/components/WorkingDashboard.jsx"></script>
     <script type="text/babel" src="/src/components/PropertyCard.jsx"></script>
     <script type="text/babel" src="/src/components/LeaseDocument.jsx"></script>
     <script type="text/babel" src="/src/components/LeaseCard.jsx"></script>
-    <script type="text/babel" src="/src/components/Leases.jsx"></script>
     <script type="text/babel" src="/src/components/AIListingGenerator.jsx"></script>
     <script type="text/babel" src="/src/components/ConversationalLeasingAssistant.jsx"></script>
     <script type="text/babel" src="/src/components/SmartLeasingPipeline.jsx"></script>
@@ -90,8 +121,33 @@
     <script type="text/babel" src="/src/components/SmartLeaseGenerator.jsx"></script>
     <script type="text/babel" src="/src/components/UnifiedMessagingHub.jsx"></script>
     <script type="text/babel" src="/src/components/ProfessionalMail.jsx"></script>
+    <script type="text/babel" src="/src/components/ProfessionalMailWorking.jsx"></script>
     <script type="text/babel" src="/src/components/AIAssistantFloat.jsx"></script>
+    <script type="text/babel" src="/src/components/AIDashboard.jsx"></script>
     <script type="text/babel" src="/src/components/QuantumCalendar.jsx"></script>
+    <script type="text/babel" src="/src/components/SimpleCalendar.jsx"></script>
+    <script type="text/babel" src="/src/pages/Maintenance.jsx"></script>
+    <script type="text/babel" src="/src/pages/MaintenanceEcosystem.jsx"></script>
+    <script type="text/babel" src="/src/pages/MaintenanceEcosystemPro.jsx"></script>
+    <script type="text/babel" src="/src/pages/MaintenanceCommand.jsx"></script>
+    <script type="text/babel" src="/src/pages/MaintenanceRedirect.jsx"></script>
+    <script type="text/babel" src="/src/pages/FinancialDashboard.jsx"></script>
+    <script type="text/babel" src="/src/pages/GeneralLedgerModule.jsx"></script>
+    <script type="text/babel" src="/src/pages/TrialBalanceModule.jsx"></script>
+    <script type="text/babel" src="/src/pages/VendorManagementSystem.jsx"></script>
+    <script type="text/babel" src="/src/components/PropertySwitcher.jsx"></script>
+    <script type="text/babel" src="/src/components/MaintenancePhotoAnalyzer.jsx"></script>
+    <script type="text/babel" src="/src/components/MaintenanceVoiceAssistant.jsx"></script>
+    <script type="text/babel" src="/src/components/TenantMaintenanceChat.jsx"></script>
+    <script type="text/babel" src="/src/components/SilenceModeIndicator.jsx"></script>
+    <script type="text/babel" src="/src/stores/maintenanceStore.js"></script>
+    <script type="text/babel" src="/src/hooks/useMaintenanceStore.js"></script>
+    <script type="text/babel" src="/src/components/MaintenanceRequestModal.jsx"></script>
+    <script type="text/babel" src="/src/components/LeadManagementSystem.jsx"></script>
+    <script type="text/babel" src="/src/components/OwnerPortal.jsx"></script>
+    <script type="text/babel" src="/src/components/ValorPaymentModal.jsx"></script>
+    <script type="text/babel" src="/src/pages/ReportsCenter.jsx"></script>
+    <script type="text/babel" src="/src/components/GmailClone.jsx"></script>
     <script type="text/babel" src="/src/App.jsx"></script>
     <script type="text/babel" src="/src/index.jsx"></script>
 </body>
