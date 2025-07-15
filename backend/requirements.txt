@@ -16,11 +16,10 @@ passlib[bcrypt]==1.7.4
 python-dotenv==1.0.0
 
 # Email
-emails==0.6
-fastapi-mail==1.4.1
+# Removed emails and fastapi-mail - causing build issues on Render
 
 # File handling
-python-magic==0.4.27
+# Removed python-magic - requires system dependencies
 pillow==10.1.0
 
 # Background tasks
@@ -30,7 +29,7 @@ redis==5.0.1
 # Testing
 pytest==7.4.3
 pytest-asyncio==0.21.1
-httpx==0.25.2
+httpx==0.26.0
 
 # Development
 black==23.11.0
