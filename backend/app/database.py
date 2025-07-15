@@ -41,7 +41,7 @@ def init_db() -> None:
     Initialize database tables
     """
     # Import all models here to ensure they are registered with SQLAlchemy
-    from app.models import (
+    from .models import (
         company,
         user,
         property,
